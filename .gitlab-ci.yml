@@ -1,0 +1,23 @@
+stages:
+- deploy
+deploy:
+  variables:
+    PROJECT_GROUPS: "git@github.com:kongxiaojian123"
+    PROJECT_NAME: "cicc20190419"
+    PROJECT_BRANCH: "release"
+  stage: deploy
+  tags:
+    - sales
+  script:
+  - deploy_path="/data/www/$PROJECT_GROUPS/$PROJECT_NAME"
+  - if [ ! -d "$deploy_path" ];then
+  - mkdir -p $deploy_path
+  - project_path="ssh://git@g.hz.netease.com:22222/$PROJECT_GROUPS/$PROJECT_NAME.git"
+  - git clone -b $PROJECT_BRANCH $project_path $deploy_path
+  - else
+  - cd $deploy_path
+  - git checkout $PROJECT_BRANCH
+  - git pull
+  - fi
+  only:
+    - release
