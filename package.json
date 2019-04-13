@@ -1,0 +1,25 @@
+{
+	"name": "cicc20190419",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"private": true,
+	"platform": "wap",
+	"scripts": {
+		"dev": "f2e -d",
+		"release": "f2e -r"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:kongxiaojian123/cicc20190419.git"
+	},
+	"keywords": [],
+	"author": "djkong",
+	"license": "ISC",
+	"devDependencies": {
+		
+	},
+	"dependencies": {
+		
+	}
+}

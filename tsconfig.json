@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "strict": false,
+        "noEmitOnError": true,
+        "strictNullChecks": false,
+        "allowJs": true,
+        "sourceMap": true,
+        "noImplicitReturns": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "target": "esnext",
+        "baseUrl": ".",
+        "paths": {
+            "Common/*": ["./src/common/*"],
+            "Assets/*": ["./src/common/assets/*"],
+            "Components/*": ["./src/common/components/*"],
+            "Css/*": ["./src/common/css/*"],
+            "Js/*": ["./src/common/js/*"],
+            "Static/*": ["./src/common/static/*"],
+            "*": [
+                "./src/common/components/*",
+                "*",
+                "../../f2e_cli/develop_tools/node_modules/*"
+            ]
+        }
+    }
+}
