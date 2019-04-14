@@ -1,26 +1,25 @@
 <template>
     <div class="app">
-        sadsda
-        <Loading :assets="loadAssets" @complete="loadComplete"/>
+        <Screen v-if="pageIndex===0"></Screen>
+        <Loading v-if="pageIndex===-1" :assets="loadAssets" @complete="loadComplete"/>
     </div>
 </template>
 
-<script>
-    // import { Vue, Component, Watch, Emit, Prop, } from 'vue-property-decorator';
-    import Loading from 'Components/loading/App.vue';
-    export default {
-        data(){
-            return{
-                loadAssets:require.context("../assets", true, /\.(png|jpg)$/i)
-            }
-        },
-        methods:{
-            loadComplete(){
-                console.log(111);
-            }
-        },
-        components:{
-            Loading
+<script lang="ts">
+    import { Vue, Component, Watch, Emit, Prop, } from 'vue-property-decorator';
+    import Loading from 'loading/App.vue';
+    import Screen from './Screen.vue';
+    @Component({components:{
+        Loading,Screen
+    }})
+    export default class App extends Vue {
+        private loadAssets:RequireContext=require.context("../assets", true, /\.(png|jpg)$/i);
+        private pageIndex:number=-1;
+        private loadComplete(){
+            this.setPage(0);
+        }
+        private setPage(index:number){
+            this.pageIndex = index;
         }
     };
 </script>
