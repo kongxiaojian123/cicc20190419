@@ -54,7 +54,7 @@
                 this.titleTextStyle.transform = `translateX(${Math.min(0,val-.25)*200}px)`;
                 this.titleBgStyle.transform = `translate(${-(val-.8)*200}px,${-(val-.25)*50}px)`;
                 this.titleNumStyle.transform = `translate(${(val-.25)*200}px,${(val-.25)*110}px) scale(${Math.max(1,1-(val-0.25)*2)})`;
-                this.mainBgStyle.transform = `translateY(${(val-.7)*200}px)`;
+                this.mainBgStyle.transform = `translateY(${(val-.7)*250}px)`;
 
                 this.mainType01Style.transform = `translateX(${Math.min(0,val-.5)*200}px)`;
                 this.mainSummary01Style.transform = `scale(${Math.max(1,(.7-val)*10)})`;
