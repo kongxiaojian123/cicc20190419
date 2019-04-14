@@ -4,20 +4,20 @@
             <div class="type02 ps-468">
                 <div class="date ps-476"></div>
                 <div class="chart ps-474">
-                    <div class="bottom ps-478"></div>
+                    <div class="bottom ps-478" :style="mainBottom02Style"></div>
                     <div class="chart-main ps-480">
                         <div class="item1 ps-484">
-                            <div class="size ps-492"></div>
-                            <div class="text ps-490"></div>
+                            <div class="size ps-492" :style="mainSize21Style"></div>
+                            <div class="text ps-490" :style="mainText21Style"></div>
                         </div>
                         <div class="item0 ps-482">
-                            <div class="size ps-488"></div>
-                            <div class="text ps-486"></div>
+                            <div class="size ps-488" :style="mainSize20Style"></div>
+                            <div class="text ps-486" :style="mainText20Style"></div>
                         </div>
                     </div>
                 </div>
-                <div class="summary ps-472"></div>
-                <div class="type ps-55"></div>
+                <div class="summary ps-472" :style="mainSummary02Style"></div>
+                <div class="type ps-55" :style="mainType02Style"></div>
             </div>
             <div class="type01 ps-470">
                 <div class="bg" :style="mainBgStyle"></div>
@@ -55,6 +55,7 @@
                 this.titleBgStyle.transform = `translate(${-(val-.8)*200}px,${-(val-.25)*50}px)`;
                 this.titleNumStyle.transform = `translate(${(val-.25)*200}px,${(val-.25)*110}px) scale(${Math.max(1,1-(val-0.25)*2)})`;
                 this.mainBgStyle.transform = `translateY(${(val-.7)*200}px)`;
+
                 this.mainType01Style.transform = `translateX(${Math.min(0,val-.5)*200}px)`;
                 this.mainSummary01Style.transform = `scale(${Math.max(1,(.7-val)*10)})`;
                 this.mainSummary01Style.opacity = 1-Math.clamp((.6-val)*5,0,1);
@@ -66,6 +67,22 @@
                 this.mainText11Style.transform = `translate(${Math.min(0,val-.85)*100}px,${-Math.min(0,val-.85)*100}px)`;
                 this.mainText10Style.opacity = 1-Math.clamp((.7-val)*10,0,1);
                 this.mainText11Style.opacity = 1-Math.clamp((.8-val)*10,0,1);
+
+
+                val-=0.4;
+                this.mainType02Style.transform = `translateX(${Math.min(0,val-.5)*200}px)`;
+                this.mainSummary02Style.transform = `scale(${Math.max(1,(.7-val)*10)})`;
+                this.mainSummary02Style.opacity = 1-Math.clamp((.6-val)*5,0,1);
+                this.mainBottom02Style.transform = `translateX(${Math.min(0,val-.65)*200}px)`;
+                this.mainBottom02Style.opacity = 1-Math.clamp((.65-val)*10,0,1);
+                this.mainSize20Style.transform = `translate(${Math.min(0,val-.7)*200}px,${-Math.min(0,val-.7)*200}px)`;
+                this.mainSize21Style.transform = `translate(${Math.min(0,val-.8)*200}px,${-Math.min(0,val-.8)*200}px)`;
+                this.mainText20Style.transform = `translate(${Math.min(0,val-.75)*100}px,${-Math.min(0,val-.75)*100}px)`;
+                this.mainText21Style.transform = `translate(${Math.min(0,val-.85)*100}px,${-Math.min(0,val-.85)*100}px)`;
+                this.mainText20Style.opacity = 1-Math.clamp((.7-val)*10,0,1);
+                this.mainText21Style.opacity = 1-Math.clamp((.8-val)*10,0,1);
+
+
             }
         },
         data(){
@@ -104,6 +121,33 @@
                     opacity:1,
                 },
                 mainText11Style:{
+                    transform:null,
+                    opacity:1,
+                },
+
+
+                mainType02Style:{
+                    transform:null,
+                },
+                mainSummary02Style:{
+                    transform:null,
+                    opacity:0,
+                },
+                mainBottom02Style:{
+                    transform:null,
+                    opacity:0,
+                },
+                mainSize20Style:{
+                    transform:null,
+                },
+                mainSize21Style:{
+                    transform:null,
+                },
+                mainText20Style:{
+                    transform:null,
+                    opacity:1,
+                },
+                mainText21Style:{
                     transform:null,
                     opacity:1,
                 }
