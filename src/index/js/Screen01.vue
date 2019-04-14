@@ -20,36 +20,93 @@
                 <div class="type ps-55"></div>
             </div>
             <div class="type01 ps-470">
+                <div class="bg" :style="mainBgStyle"></div>
                 <div class="date ps-448"></div>
                 <div class="chart ps-454">
-                    <div class="bottom ps-452"></div>
+                    <div class="bottom ps-452" :style="mainBottom01Style"></div>
                     <div class="chart-main ps-456">
                         <div class="item1 ps-460">
-                            <div class="size ps-23"></div>
-                            <div class="text ps-464"></div>
+                            <div class="size ps-23" :style="mainSize11Style"></div>
+                            <div class="text ps-464" :style="mainText11Style"></div>
                         </div>
                         <div class="item0 ps-458">
-                            <div class="size ps-22"></div>
-                            <div class="text ps-462"></div>
+                            <div class="size ps-22" :style="mainSize10Style"></div>
+                            <div class="text ps-462" :style="mainText10Style"></div>
                         </div>
                     </div>
                 </div>
-                <div class="summary ps-450"></div>
-                <div class="type ps-48"></div>
+                <div class="summary ps-450" :style="mainSummary01Style"></div>
+                <div class="type ps-48" :style="mainType01Style"></div>
             </div>
         </div>
         <div class="title ps-438">
-            <div class="bg1 ps-5"></div>
-            <div class="text ps-442"></div>
-            <div class="num_01 ps-120"></div>
+            <div class="bg1 ps-5" :style="titleBgStyle"></div>
+            <div class="text ps-442" :style="titleTextStyle"></div>
+            <div class="num_01 ps-120" :style="titleNumStyle"></div>
         </div>
         </div>
 </template>
 <script >
     export default {
+        props:['progress'],
+        watch:{
+            progress(val){
+                this.titleTextStyle.transform = `translateX(${Math.min(0,val-.25)*200}px)`;
+                this.titleBgStyle.transform = `translate(${-(val-.8)*200}px,${-(val-.25)*50}px)`;
+                this.titleNumStyle.transform = `translate(${(val-.25)*200}px,${(val-.25)*110}px) scale(${Math.max(1,1-(val-0.25)*2)})`;
+                this.mainBgStyle.transform = `translateY(${(val-.7)*200}px)`;
+                this.mainType01Style.transform = `translateX(${Math.min(0,val-.5)*200}px)`;
+                this.mainSummary01Style.transform = `scale(${Math.max(1,(.7-val)*10)})`;
+                this.mainSummary01Style.opacity = 1-Math.clamp((.6-val)*5,0,1);
+                this.mainBottom01Style.transform = `translateX(${Math.min(0,val-.65)*200}px)`;
+                this.mainBottom01Style.opacity = 1-Math.clamp((.65-val)*10,0,1);
+                this.mainSize10Style.transform = `translate(${Math.min(0,val-.7)*200}px,${-Math.min(0,val-.7)*200}px)`;
+                this.mainSize11Style.transform = `translate(${Math.min(0,val-.8)*200}px,${-Math.min(0,val-.8)*200}px)`;
+                this.mainText10Style.transform = `translate(${Math.min(0,val-.75)*100}px,${-Math.min(0,val-.75)*100}px)`;
+                this.mainText11Style.transform = `translate(${Math.min(0,val-.85)*100}px,${-Math.min(0,val-.85)*100}px)`;
+                this.mainText10Style.opacity = 1-Math.clamp((.7-val)*10,0,1);
+                this.mainText11Style.opacity = 1-Math.clamp((.8-val)*10,0,1);
+            }
+        },
         data(){
             return{
-                
+                titleBgStyle:{
+                    transform:null,
+                },
+                titleTextStyle:{
+                    transform:null,
+                },
+                titleNumStyle:{
+                    transform:null,
+                },
+                mainBgStyle:{
+                    transform:null,
+                },
+                mainType01Style:{
+                    transform:null,
+                },
+                mainSummary01Style:{
+                    transform:null,
+                    opacity:0,
+                },
+                mainBottom01Style:{
+                    transform:null,
+                    opacity:0,
+                },
+                mainSize10Style:{
+                    transform:null,
+                },
+                mainSize11Style:{
+                    transform:null,
+                },
+                mainText10Style:{
+                    transform:null,
+                    opacity:1,
+                },
+                mainText11Style:{
+                    transform:null,
+                    opacity:1,
+                }
             }
         },
         computed:{
@@ -67,6 +124,9 @@
         position:relative;
         width:640rpx;
         height:1719rpx;
+        .chart-main{
+            overflow: hidden;
+        }
         .ps-438{
             position:absolute;
             left:38.90625%;
@@ -107,6 +167,13 @@
                 left:50%;
                 top:26.165011%;
                 background:url("../assets/bg.ps-446.png") no-repeat center;
+                background-image: none;
+                .bg{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background:url("../assets/bg.ps-446.png") no-repeat center;
+                }
                 .ps-48{
                     position:absolute;
                     left:24.921875%;

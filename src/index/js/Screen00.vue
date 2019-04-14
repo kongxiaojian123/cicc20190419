@@ -1,19 +1,36 @@
 <template>
     <div class="screen00 ps-466">
         <div class="slogan ps-432">
-            <div class="bg2 ps-428"></div>
-            <div class="bg1 ps-426"></div>
+            <div class="bg2 ps-428" :style="bg2Style"></div>
+            <div class="bg1 ps-426" :style="bg1Style"></div>
             <div class="bg0 ps-430"></div>
-            <div class="text ps-163"></div>
+            <div class="text ps-163" :style="textStyle"></div>
         </div>
         <div class="logo ps-434"></div>
         </div>
 </template>
 <script >
     export default {
+        props:['progress'],
+        watch:{
+            progress(val){
+                const progress = Math.max(val-1,0);
+                this.bg2Style.transform=`scale(${1+progress/1.6})`;
+                this.bg1Style.transform=`translateY(${progress*160}px)`;
+                this.textStyle.transform=`translateY(${progress*60}px)`;
+            }
+        },
         data(){
             return{
-                
+                bg2Style:{
+                    transform:null,
+                },
+                bg1Style:{
+                    transform:null,
+                },
+                textStyle:{
+                    transform:null,
+                }
             }
         },
         computed:{

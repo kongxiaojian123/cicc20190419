@@ -19,6 +19,9 @@ declare module "vue-awesome-swiper" {
         Vue as swiperSlide
     };
 }
+declare interface Math{
+    clamp(value:number,min:number,max:number):number;
+}
 declare interface PIXI{
     loader:{
         add:Function,
