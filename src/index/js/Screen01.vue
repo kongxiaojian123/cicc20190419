@@ -91,8 +91,8 @@
                 });
                 this.mainBgStyle = this.$parent.tweenCss({
                     translateY:{
-                        fromTo:[0,350],
-                        range:[.3,2.2*this.screen],
+                        fromTo:[0,400],
+                        range:[.3,2.3*this.screen],
                         progress:val, 
                     },
                 });
