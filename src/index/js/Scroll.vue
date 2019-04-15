@@ -7,13 +7,13 @@
                 transform:`translateY(${-scrollTo}px)`
             }"
         >
-            <Screen00 :progress="subProgress[0]"/>
-            <Screen01 :progress="subProgress[1]"/>
-            <Screen02 :progress="subProgress[2]"/>
-            <Screen03 :progress="subProgress[3]"/>
-            <Screen04 :progress="subProgress[4]"/>
-            <Screen05 :progress="subProgress[5]"/>
-            <Screen06 :progress="subProgress[6]"/>
+            <Screen00 :progress="subProgress[0]" :screen="subScreen[0]"/>
+            <Screen01 :progress="subProgress[1]" :screen="subScreen[1]"/>
+            <Screen02 :progress="subProgress[2]" :screen="subScreen[2]"/>
+            <Screen03 :progress="subProgress[3]" :screen="subScreen[3]"/>
+            <Screen04 :progress="subProgress[4]" :screen="subScreen[4]"/>
+            <Screen05 :progress="subProgress[5]" :screen="subScreen[5]"/>
+            <Screen06 :progress="subProgress[6]" :screen="subScreen[6]"/>
         </div>
     </div>
 </template>
@@ -32,7 +32,7 @@ import { swiper } from 'vue-awesome-swiper';
     interface tweenObj{
         [key:string]:{
             fromTo:[number,number];//变换
-            range:[number,number];//进度范围
+            range:[number,number];//进度范围 0 起始值 1 持续时长
             progress:number;//当前进度
             easing?:'easeLinear'|'easeQuad'|'easeQuadIn'|'easeQuadOut'|'easeQuadInOut'|'easeCubic'|'easeCubicIn'|'easeCubicOut'|'easeCubicInOut'|'easePoly'|'easePolyIn'|'easePolyOut'|'easePolyInOut'|'easeSin'|'easeSinIn'|'easeSinOut'|'easeSinInOut'|'easeExp'|'easeExpIn'|'easeExpOut'|'easeExpInOut'|'easeCircle'|'easeCircleIn'|'easeCircleOut'|'easeCircleInOut'|'easeBounce'|'easeBounceIn'|'easeBounceOut'|'easeBounceInOut'|'easeBack'|'easeBackIn'|'easeBackOut'|'easeBackInOut'|'easeElastic'|'easeElasticIn'|'easeElasticOut'|'easeElasticInOut';
         }
@@ -67,11 +67,12 @@ import { swiper } from 'vue-awesome-swiper';
             const scrollTop = val-scrollData.screenHeight;
             scrollItemData.forEach((item,index)=>{
                 if(scrollTop<item.bottom&&scrollBottom2>item.top) {
-                    this.$set(this.subProgress, index, (scrollBottom-item.top)/scrollData.screenHeight);//根据屏幕高度算的进度不是根据当前元素高度，子元素好计算
+                    this.$set(this.subProgress, index, (scrollBottom-item.top)/item.height);
                 }
             });
         }
         private subProgress:number[]=[];
+        private subScreen:number[]=[];//一屏高占相应的进度
         private scrollEvent({touches}:TouchEvent,init:boolean=false){
             const pageY = touches[0].pageY;
             if(!init){
@@ -101,7 +102,7 @@ import { swiper } from 'vue-awesome-swiper';
             Object.keys(tweenObj).forEach(id=>{
                 const tweenItem = tweenObj[id];
                 const easeing = tweenItem.easing||'easeLinear';
-                const progress = (Math.clamp(tweenItem.progress,...tweenItem.range)-tweenItem.range[0])/(tweenItem.range[1]-tweenItem.range[0]);
+                const progress = (Math.clamp(tweenItem.progress,tweenItem.range[0],tweenItem.range[0]+tweenItem.range[1])-tweenItem.range[0])/(tweenItem.range[1]);
                 switch(progress){
                     case 0:
                         tweenResult[id] = tweenItem.fromTo[0];
@@ -154,6 +155,7 @@ import { swiper } from 'vue-awesome-swiper';
                     bottom:offsetTop+height,
                 });
                 this.subProgress.push(0);
+                this.subScreen.push(scrollData.screenHeight/height);
             });
             this.renderScroll();
         }

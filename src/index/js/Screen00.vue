@@ -11,32 +11,32 @@
 </template>
 <script >
     export default {
-        props:['progress'],
+        props:['progress','screen'],
         watch:{
             progress(val){
                 this.bg2Style = this.$parent.tweenCss({
                     scale:{
                         fromTo:[1,2],
-                        range:[1,2.5],
+                        range:[.9,1.5],
                         progress:val,
                     },
                 });
                 this.bg1Style = this.$parent.tweenCss({
                     translateY:{
                         fromTo:[0,450],
-                        range:[1,2.5],
+                        range:[.9,1.5],
                         progress:val, 
                     },
                     translateX:{
                         fromTo:[0,-30],
-                        range:[1,2.5],
+                        range:[.9,1.5],
                         progress:val, 
                     }
                 });
                 this.textStyle = this.$parent.tweenCss({
                     translateY:{
                         fromTo:[0,60],
-                        range:[1,1.8],
+                        range:[.9,.8],
                         progress:val, 
                     }
                 });
