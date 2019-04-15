@@ -3,7 +3,7 @@
         <div class="slogan ps-432">
             <div class="bg2 ps-428" :style="bg2Style"></div>
             <div class="bg1 ps-426" :style="bg1Style"></div>
-            <div class="bg0 ps-430"></div>
+            <div class="bg0 ps-430" :style="bg0Style"></div>
             <div class="text ps-163" :style="textStyle"></div>
         </div>
         <div class="logo ps-434"></div>
@@ -40,13 +40,25 @@
                         progress:val, 
                     }
                 });
+                this.bg0Style={
+                    backgroundPosition:`left ${
+                        this.$parent.tween({
+                            backgroundPosition:{
+                                fromTo:[0,-100],
+                                range:[1,1],
+                                progress:val, 
+                            }
+                        }).backgroundPosition
+                    }px`,
+                }
             }
         },
         data(){
             return{
                 bg2Style:null,
                 bg1Style:null,
-                textStyle:null
+                textStyle:null,
+                bg0Style:null,
             }
         },
         computed:{
@@ -88,7 +100,14 @@
                 position:absolute;
                 left:62.265625%;
                 top:50%;
-                background:url("../assets/bg0.ps-430.png") no-repeat center;
+                width: 483rpx; 
+                height: 1100rpx;
+                margin-left: -483/2rpx;
+                margin-top: -1100/2rpx;
+                -webkit-mask:url("../assets/bg0.mask.ps-430.png") no-repeat;
+                -webkit-mask-size:contain; 
+                background: url("../assets/bg0.ps-430.jpg")left top no-repeat;
+                background-size: cover;
             }
             .ps-426{
                 position:absolute;
