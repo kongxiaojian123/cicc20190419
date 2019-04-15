@@ -131,6 +131,9 @@ import { swiper } from 'vue-awesome-swiper';
                     break;
                     case 'scale':
                         transform.push(`scale(${val})`);
+                    break; 
+                    case 'rotateZ':
+                        transform.push(`rotateZ(${val}deg)`);
                     break;
                     case 'opacity':
                         opacity = val;

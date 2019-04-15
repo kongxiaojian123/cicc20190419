@@ -3,75 +3,332 @@
         <div class="main ps-584">
             <div class="type02 ps-588">
                 <div class="date ps-592"></div>
-                <div class="chart ps-1094">
+                <div class="chart ps-1094" :style="mainChart1style">
                     <div class="chart-main ps-1093">
                         <div class="item2 ps-1078">
                             <div class="size ps-1076">
-                                <div class="bg ps-347"></div>
+                                <div class="bg ps-347"><span :style="mainSize12Style"></span></div>
                                 <div class="mask ps-1111"></div>
                             </div>
-                            <div class="text ps-1095"></div>
+                            <div class="text ps-1095" :style="mainText12Style"></div>
                         </div>
                         <div class="item1 ps-1085">
                             <div class="size ps-1083">
-                                <div class="bg ps-251"></div>
+                                <div class="bg ps-251"><span :style="mainSize11Style"></span></div>
                                 <div class="mask ps-1113"></div>
                             </div>
-                            <div class="text ps-1097"></div>
+                            <div class="text ps-1097" :style="mainText11Style"></div>
                         </div>
                         <div class="item0 ps-1092">
                             <div class="size ps-1090">
-                                <div class="bg ps-195"></div>
+                                <div class="bg ps-195"><span :style="mainSize10Style"></span></div>
                                 <div class="mask ps-1112"></div>
                             </div>
-                            <div class="text ps-1099"></div>
+                            <div class="text ps-1099" :style="mainText10Style"></div>
                         </div>
                     </div>
                 </div>
-                <div class="type ps-96"></div>
+                <div class="type ps-96" :style="mainType1style"></div>
             </div>
             <div class="type01 ps-586">
                 <div class="date ps-590"></div>
-                <div class="chart ps-1041">
+                <div class="chart ps-1041" :style="mainChart0style">
                     <div class="chart-main ps-1043">
                         <div class="item2 ps-1055">
                             <div class="size ps-1059">
-                                <div class="bg ps-77"></div>
+                                <div class="bg ps-77"><span :style="mainSize02Style"></span></div>
                                 <div class="mask ps-1110"></div>
                             </div>
-                            <div class="text ps-1063"></div>
+                            <div class="text ps-1063" :style="mainText02Style"></div>
                         </div>
                         <div class="item1 ps-1053">
                             <div class="size ps-1057">
-                                <div class="bg ps-1067"></div>
+                                <div class="bg ps-1067"><span :style="mainSize01Style"></span></div>
                                 <div class="mask ps-1109"></div>
                             </div>
-                            <div class="text ps-1061"></div>
+                            <div class="text ps-1061" :style="mainText01Style"></div>
                         </div>
                         <div class="item0 ps-1045">
                             <div class="size ps-1047">
-                                <div class="bg ps-1051"></div>
+                                <div class="bg ps-1051"><span :style="mainSize00Style"></span></div>
                                 <div class="mask ps-1108"></div>
                             </div>
-                            <div class="text ps-1049"></div>
+                            <div class="text ps-1049" :style="mainText00Style"></div>
                         </div>
                     </div>
                 </div>
-                <div class="type ps-89"></div>
+                <div class="type ps-89" :style="mainType0style"></div>
             </div>
         </div>
         <div class="title ps-580">
-            <div class="bg1 ps-582"></div>
-            <div class="text ps-88"></div>
-            <div class="num03 ps-126"></div>
+            <div class="bg1 ps-582" :style="titleBgStyle"></div>
+            <div class="text ps-88" :style="titleTextStyle"></div>
+            <div class="num03 ps-126" :style="titleNumStyle"></div>
         </div>
         </div>
 </template>
 <script >
     export default {
+        props:['progress','screen'],
+        watch:{
+            progress(val){
+                this.titleTextStyle = this.$parent.tweenCss({
+                    opacity:{
+                        fromTo:[0,1],
+                        range:[.05,.2*this.screen], 
+                        progress:val,
+                    },
+                    rotateZ:{
+                        fromTo:[-10,0],
+                        range:[.05,.3*this.screen], 
+                        progress:val,
+                        easing:'easeQuadOut'
+                    },
+                });
+                this.titleBgStyle = this.$parent.tweenCss({
+                    opacity:{
+                        fromTo:[0,1],
+                        range:[.15,.1*this.screen], 
+                        progress:val,
+                    },
+                    rotateZ:{
+                        fromTo:[8,0],
+                        range:[.15,.3*this.screen], 
+                        progress:val,
+                        easing:'easeQuadOut'
+                    },
+                    translateX:{
+                        fromTo:[0,-100],
+                        range:[.15,1.2*this.screen], 
+                        progress:val,
+                    },
+                });
+                this.titleNumStyle = this.$parent.tweenCss({
+                    translateY:{
+                        fromTo:[-150,150],
+                        range:[-.1,1.5*this.screen], 
+                        progress:val,
+                    },
+                    translateX:{
+                        fromTo:[-30,30],
+                        range:[-.1,1.5*this.screen], 
+                        progress:val,
+                    },
+                    scale:{
+                        fromTo:[1.5,1],
+                        range:[0,.3*this.screen], 
+                        progress:val,
+                    }, 
+                });
+                {
+                    const offset = 0;
+                    this.mainType0style = this.$parent.tweenCss({
+                        translateX:{
+                            fromTo:[-100,0],
+                            range:[.23+offset,.25*this.screen], 
+                            progress:val,
+                            easing:'easeBounceOut',
+                        },
+                        opacity:{
+                            fromTo:[0,1],
+                            range:[.23+offset,.1*this.screen], 
+                            progress:val,
+                        },
+                    });
+                    this.mainChart0style = this.$parent.tweenCss({
+                        scale:{
+                            fromTo:[.3,1],
+                            range:[.48+offset,.1*this.screen], 
+                            progress:val,
+                            easing:'easeBackOut',
+                        },
+                        opacity:{
+                            fromTo:[0,1],
+                            range:[.48+offset,.05*this.screen], 
+                            progress:val,
+                        },
+                    });
+                    this.mainSize00Style = this.$parent.tweenCss({
+                        translateY:{
+                            fromTo:[85,0],
+                            range:[.52+offset,.1*this.screen], 
+                            progress:val,
+                            easing:'easeBackOut',
+                        },
+                    });
+                    this.mainSize01Style = this.$parent.tweenCss({
+                        translateY:{
+                            fromTo:[160,0],
+                            range:[.54+offset,.1*this.screen], 
+                            progress:val,
+                            easing:'easeBackOut',
+                        },
+                    });
+                    this.mainSize02Style = this.$parent.tweenCss({
+                        translateY:{
+                            fromTo:[225,0],
+                            range:[.56+offset,.1*this.screen], 
+                            progress:val,
+                            easing:'easeBackOut',
+                        },
+                    });
+                    this.mainText00Style = this.$parent.tweenCss({
+                        scale:{
+                            fromTo:[.5,1],
+                            range:[.54+offset,.1*this.screen], 
+                            progress:val,
+                            easing:'easeBackOut',
+                        },
+                        opacity:{
+                            fromTo:[0,1],
+                            range:[.54+offset,.05*this.screen], 
+                            progress:val,
+                        }
+                    });
+                    this.mainText01Style = this.$parent.tweenCss({
+                        scale:{
+                            fromTo:[.5,1],
+                            range:[.56+offset,.1*this.screen], 
+                            progress:val,
+                            easing:'easeBackOut',
+                        },
+                        opacity:{
+                            fromTo:[0,1],
+                            range:[.56+offset,.05*this.screen], 
+                            progress:val,
+                        }
+                    });
+                    this.mainText02Style = this.$parent.tweenCss({
+                        scale:{
+                            fromTo:[.5,1],
+                            range:[.58+offset,.1*this.screen], 
+                            progress:val,
+                            easing:'easeBackOut',
+                        },
+                        opacity:{
+                            fromTo:[0,1],
+                            range:[.58+offset,.05*this.screen], 
+                            progress:val,
+                        }
+                    });
+                }
+                {
+                    const offset = 0.41;
+                    this.mainType1style = this.$parent.tweenCss({
+                        translateX:{
+                            fromTo:[-100,0],
+                            range:[.23+offset,.25*this.screen], 
+                            progress:val,
+                            easing:'easeBounceOut',
+                        },
+                        opacity:{
+                            fromTo:[0,1],
+                            range:[.23+offset,.1*this.screen], 
+                            progress:val,
+                        },
+                    });
+                    this.mainChart1style = this.$parent.tweenCss({
+                        scale:{
+                            fromTo:[.3,1],
+                            range:[.48+offset,.1*this.screen], 
+                            progress:val,
+                            easing:'easeBackOut',
+                        },
+                        opacity:{
+                            fromTo:[0,1],
+                            range:[.48+offset,.05*this.screen], 
+                            progress:val,
+                        },
+                    });
+                    this.mainSize10Style = this.$parent.tweenCss({
+                        translateY:{
+                            fromTo:[85,0],
+                            range:[.52+offset,.1*this.screen], 
+                            progress:val,
+                            easing:'easeBackOut',
+                        },
+                    });
+                    this.mainSize11Style = this.$parent.tweenCss({
+                        translateY:{
+                            fromTo:[160,0],
+                            range:[.54+offset,.1*this.screen], 
+                            progress:val,
+                            easing:'easeBackOut',
+                        },
+                    });
+                    this.mainSize12Style = this.$parent.tweenCss({
+                        translateY:{
+                            fromTo:[225,0],
+                            range:[.56+offset,.1*this.screen], 
+                            progress:val,
+                            easing:'easeBackOut',
+                        },
+                    });
+                    this.mainText10Style = this.$parent.tweenCss({
+                        scale:{
+                            fromTo:[.5,1],
+                            range:[.54+offset,.1*this.screen], 
+                            progress:val,
+                            easing:'easeBackOut',
+                        },
+                        opacity:{
+                            fromTo:[0,1],
+                            range:[.54+offset,.05*this.screen], 
+                            progress:val,
+                        }
+                    });
+                    this.mainText11Style = this.$parent.tweenCss({
+                        scale:{
+                            fromTo:[.5,1],
+                            range:[.56+offset,.1*this.screen], 
+                            progress:val,
+                            easing:'easeBackOut',
+                        },
+                        opacity:{
+                            fromTo:[0,1],
+                            range:[.56+offset,.05*this.screen], 
+                            progress:val,
+                        }
+                    });
+                    this.mainText12Style = this.$parent.tweenCss({
+                        scale:{
+                            fromTo:[.5,1],
+                            range:[.58+offset,.1*this.screen], 
+                            progress:val,
+                            easing:'easeBackOut',
+                        },
+                        opacity:{
+                            fromTo:[0,1],
+                            range:[.58+offset,.05*this.screen], 
+                            progress:val,
+                        }
+                    });
+                }
+            }
+        },
         data(){
             return{
-                
+                titleTextStyle:null,
+                titleBgStyle:null,
+                titleNumStyle:null,
+                mainType0style:null,
+                mainChart0style:null,
+                mainType1style:null,
+                mainChart1style:null,
+
+                mainSize00Style:null,
+                mainSize01Style:null,
+                mainSize02Style:null,
+                mainText00Style:null,
+                mainText01Style:null,
+                mainText02Style:null,
+
+                mainSize10Style:null,
+                mainSize11Style:null,
+                mainSize12Style:null,
+                mainText10Style:null,
+                mainText11Style:null,
+                mainText12Style:null,
             }
         },
         computed:{
@@ -89,6 +346,25 @@
         position:relative;
         width:572rpx;
         height:1825rpx;
+        .title{
+            .text{
+                transform-origin: -200% 300%; 
+            }
+            .bg1{
+                transform-origin: 200% 300%; 
+            }
+        }
+        .main{
+            .bg{
+                overflow: hidden;
+                background: none !important;
+                padding-top: 20rpx;
+                span{
+                    position: absolute;
+                    bottom: 0;left: 0;
+                }
+            }
+        }
         .ps-580{
             position:absolute;
             left:52.185315%;
@@ -183,7 +459,11 @@
                                     position:absolute;
                                     left:51.020408%;
                                     top:49.166667%;
+                                    margin-top: -20-118/2rpx;
                                     background:url("../assets/bg.ps-1051.png") no-repeat center;
+                                    span{
+                                    background:url("../assets/bg.ps-1051.png") no-repeat center;
+                                    }
                                 }
                             }
                         }
@@ -219,7 +499,11 @@
                                     position:absolute;
                                     left:48.979592%;
                                     top:49.484536%;
+                                    margin-top: -20-192/2rpx;
                                     background:url("../assets/bg.ps-1067.png") no-repeat center;
+                                    span{
+                                    background:url("../assets/bg.ps-1067.png") no-repeat center;
+                                    }
                                 }
                             }
                         }
@@ -255,7 +539,11 @@
                                     position:absolute;
                                     left:48.979592%;
                                     top:49.805447%;
+                                    margin-top: -20-256/2rpx;
                                     background:url("../assets/bg.ps-77.png") no-repeat center;
+                                    span{
+                                        background:url("../assets/bg.ps-77.png") no-repeat center;
+                                    }
                                 }
                             }
                         }
@@ -327,7 +615,11 @@
                                     position:absolute;
                                     left:48.979592%;
                                     top:48.275862%;
+                                    margin-top: -20-84/2rpx;
                                     background:url("../assets/bg.ps-195.png") no-repeat center;
+                                    span{
+                                        background:url("../assets/bg.ps-195.png") no-repeat center;
+                                    }
                                 }
                             }
                         }
@@ -363,7 +655,11 @@
                                     position:absolute;
                                     left:46.938776%;
                                     top:48.958333%;
+                                    margin-top: -20-141/2rpx;
                                     background:url("../assets/bg.ps-251.png") no-repeat center;
+                                    span{
+                                        background:url("../assets/bg.ps-251.png") no-repeat center;
+                                    }
                                 }
                             }
                         }
@@ -399,7 +695,11 @@
                                     position:absolute;
                                     left:50%;
                                     top:49.353448%;
+                                    margin-top: -20-229/2rpx;
                                     background:url("../assets/bg.ps-347.png") no-repeat center;
+                                    span{
+                                        background:url("../assets/bg.ps-347.png") no-repeat center;
+                                    }
                                 }
                             }
                         }
