@@ -1,6 +1,6 @@
 <template>
     <div class="app">
-        <Screen v-if="pageIndex===0"></Screen>
+        <Scroll v-if="pageIndex===0"></Scroll>
         <Loading v-if="pageIndex===-1" :assets="loadAssets" @complete="loadComplete"/>
     </div>
 </template>
@@ -8,9 +8,9 @@
 <script lang="ts">
     import { Vue, Component, Watch, Emit, Prop, } from 'vue-property-decorator';
     import Loading from 'loading/App.vue';
-    import Screen from './Screen.vue';
+    import Scroll from './Scroll.vue';
     @Component({components:{
-        Loading,Screen
+        Loading,Scroll
     }})
     export default class App extends Vue {
         private loadAssets:RequireContext=require.context("../assets", true, /\.(png|jpg)$/i);
@@ -31,6 +31,5 @@
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
 }
 </style>

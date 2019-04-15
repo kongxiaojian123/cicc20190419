@@ -51,106 +51,251 @@
         props:['progress'],
         watch:{
             progress(val){
-                this.titleTextStyle.transform = `translateX(${Math.min(0,val-.25)*200}px)`;
-                this.titleBgStyle.transform = `translate(${-(val-.8)*200}px,${-(val-.25)*50}px)`;
-                this.titleNumStyle.transform = `translate(${(val-.25)*200}px,${(val-.25)*110}px) scale(${Math.max(1,1-(val-0.25)*2)})`;
-                this.mainBgStyle.transform = `translateY(${(val-.7)*250}px)`;
-
-                this.mainType01Style.transform = `translateX(${Math.min(0,val-.5)*200}px)`;
-                this.mainSummary01Style.transform = `scale(${Math.max(1,(.7-val)*10)})`;
-                this.mainSummary01Style.opacity = 1-Math.clamp((.6-val)*5,0,1);
-                this.mainBottom01Style.transform = `translateX(${Math.min(0,val-.65)*200}px)`;
-                this.mainBottom01Style.opacity = 1-Math.clamp((.65-val)*10,0,1);
-                this.mainSize10Style.transform = `translate(${Math.min(0,val-.7)*200}px,${-Math.min(0,val-.7)*200}px)`;
-                this.mainSize11Style.transform = `translate(${Math.min(0,val-.8)*200}px,${-Math.min(0,val-.8)*200}px)`;
-                this.mainText10Style.transform = `translate(${Math.min(0,val-.75)*100}px,${-Math.min(0,val-.75)*100}px)`;
-                this.mainText11Style.transform = `translate(${Math.min(0,val-.85)*100}px,${-Math.min(0,val-.85)*100}px)`;
-                this.mainText10Style.opacity = 1-Math.clamp((.7-val)*10,0,1);
-                this.mainText11Style.opacity = 1-Math.clamp((.8-val)*10,0,1);
-
-
-                val-=0.4;
-                this.mainType02Style.transform = `translateX(${Math.min(0,val-.5)*200}px)`;
-                this.mainSummary02Style.transform = `scale(${Math.max(1,(.7-val)*10)})`;
-                this.mainSummary02Style.opacity = 1-Math.clamp((.6-val)*5,0,1);
-                this.mainBottom02Style.transform = `translateX(${Math.min(0,val-.65)*200}px)`;
-                this.mainBottom02Style.opacity = 1-Math.clamp((.65-val)*10,0,1);
-                this.mainSize20Style.transform = `translate(${Math.min(0,val-.7)*200}px,${-Math.min(0,val-.7)*200}px)`;
-                this.mainSize21Style.transform = `translate(${Math.min(0,val-.8)*200}px,${-Math.min(0,val-.8)*200}px)`;
-                this.mainText20Style.transform = `translate(${Math.min(0,val-.75)*100}px,${-Math.min(0,val-.75)*100}px)`;
-                this.mainText21Style.transform = `translate(${Math.min(0,val-.85)*100}px,${-Math.min(0,val-.85)*100}px)`;
-                this.mainText20Style.opacity = 1-Math.clamp((.7-val)*10,0,1);
-                this.mainText21Style.opacity = 1-Math.clamp((.8-val)*10,0,1);
-
-
+                this.titleTextStyle = this.$parent.tweenCss({
+                    translateX:{
+                        fromTo:[-100,0],
+                        range:[.1,.1+.3],
+                        progress:val,
+                        easing:'easeQuadOut'
+                    },
+                });
+                this.titleBgStyle = this.$parent.tweenCss({
+                    translateX:{
+                        fromTo:[100,-45],
+                        range:[0,1],
+                        progress:val,
+                    },
+                    translateY:{
+                        fromTo:[45,-45],
+                        range:[0,1],
+                        progress:val,
+                    },
+                });
+                this.titleNumStyle = this.$parent.tweenCss({
+                    translateX:{
+                        fromTo:[-130,160],
+                        range:[0,1.2],
+                        progress:val,
+                    },
+                    translateY:{
+                        fromTo:[-30,100],
+                        range:[0,1.2],
+                        progress:val, 
+                    },
+                    scale:{
+                        fromTo:[1.5,1],
+                        range:[0,.6],
+                        progress:val,
+                        easing:'easeQuadOut'
+                    },
+                });
+                this.mainBgStyle = this.$parent.tweenCss({
+                    translateY:{
+                        fromTo:[0,350],
+                        range:[.3,2.5],
+                        progress:val, 
+                    },
+                });
+                {
+                    const offset = 0;
+                    this.mainType01Style = this.$parent.tweenCss({
+                        translateX:{
+                            fromTo:[-130,0],
+                            range:[.35+offset,.6+offset],
+                            progress:val, 
+                            easing:'easeQuadOut'
+                        },
+                    });
+                    this.mainSummary01Style = this.$parent.tweenCss({
+                        opacity:{
+                            fromTo:[0,1],
+                            range:[.65+offset,.8+offset],
+                            progress:val,
+                        },
+                        scale:{
+                            fromTo:[1.6,1],
+                            range:[.65+offset,.8+offset],
+                            progress:val, 
+                            easing:'easeBackOut'
+                        },
+                    });
+                    this.mainBottom01Style = this.$parent.tweenCss({
+                        opacity:{
+                            fromTo:[0,1],
+                            range:[.85+offset,.95+offset],
+                            progress:val,
+                        },
+                        translateX:{
+                            fromTo:[-30,0],
+                            range:[.85+offset,.95+offset],
+                            progress:val,
+                        },
+                    });
+                    this.mainSize10Style = this.$parent.tweenCss({
+                        translateX:{
+                            fromTo:[-150,0],
+                            range:[.9+offset,1+offset],
+                            progress:val,
+                            easing:'easeQuadOut'
+                        },
+                        translateY:{
+                            fromTo:[150,0],
+                            range:[.9+offset,1+offset],
+                            progress:val,
+                            easing:'easeQuadOut'
+                        },
+                    });
+                    this.mainSize11Style = this.$parent.tweenCss({
+                        translateX:{
+                            fromTo:[-240,0],
+                            range:[.94+offset,1.04+offset],
+                            progress:val,
+                            easing:'easeQuadOut'
+                        },
+                        translateY:{
+                            fromTo:[240,0],
+                            range:[.94+offset,1.04+offset],
+                            progress:val,
+                            easing:'easeQuadOut'
+                        },
+                    });
+                    this.mainText10Style = this.$parent.tweenCss({
+                        opacity:{
+                            fromTo:[0,1],
+                            range:[.93+offset,1.03+offset],
+                            progress:val,
+                        },
+                        translateY:{
+                            fromTo:[30,0],
+                            range:[.93+offset,1.03+offset],
+                            progress:val,
+                        },
+                    });
+                    this.mainText11Style = this.$parent.tweenCss({
+                        opacity:{
+                            fromTo:[0,1],
+                            range:[.97+offset,1.07+offset],
+                            progress:val,
+                        },
+                        translateY:{
+                            fromTo:[30,0],
+                            range:[.97+offset,1.07+offset],
+                            progress:val,
+                        },
+                    });
+                }
+                {
+                    const offset = .6;
+                    this.mainType02Style = this.$parent.tweenCss({
+                        translateX:{
+                            fromTo:[-130,0],
+                            range:[.35+offset,.6+offset],
+                            progress:val, 
+                            easing:'easeQuadOut'
+                        },
+                    });
+                    this.mainSummary02Style = this.$parent.tweenCss({
+                        opacity:{
+                            fromTo:[0,1],
+                            range:[.65+offset,.8+offset],
+                            progress:val,
+                        },
+                        scale:{
+                            fromTo:[1.6,1],
+                            range:[.65+offset,.8+offset],
+                            progress:val, 
+                            easing:'easeBackOut'
+                        },
+                    });
+                    this.mainBottom02Style = this.$parent.tweenCss({
+                        opacity:{
+                            fromTo:[0,1],
+                            range:[.85+offset,.95+offset],
+                            progress:val,
+                        },
+                        translateX:{
+                            fromTo:[-30,0],
+                            range:[.85+offset,.95+offset],
+                            progress:val,
+                        },
+                    });
+                    this.mainSize20Style = this.$parent.tweenCss({
+                        translateX:{
+                            fromTo:[-170,0],
+                            range:[.9+offset,1+offset],
+                            progress:val,
+                            easing:'easeQuadOut'
+                        },
+                        translateY:{
+                            fromTo:[170,0],
+                            range:[.9+offset,1+offset],
+                            progress:val,
+                            easing:'easeQuadOut'
+                        },
+                    });
+                    this.mainSize21Style = this.$parent.tweenCss({
+                        translateX:{
+                            fromTo:[-240,0],
+                            range:[.94+offset,1.04+offset],
+                            progress:val,
+                            easing:'easeQuadOut'
+                        },
+                        translateY:{
+                            fromTo:[240,0],
+                            range:[.94+offset,1.04+offset],
+                            progress:val,
+                            easing:'easeQuadOut'
+                        },
+                    });
+                    this.mainText20Style = this.$parent.tweenCss({
+                        opacity:{
+                            fromTo:[0,1],
+                            range:[.93+offset,1.03+offset],
+                            progress:val,
+                        },
+                        translateY:{
+                            fromTo:[30,0],
+                            range:[.93+offset,1.03+offset],
+                            progress:val,
+                        },
+                    });
+                    this.mainText21Style = this.$parent.tweenCss({
+                        opacity:{
+                            fromTo:[0,1],
+                            range:[.97+offset,1.07+offset],
+                            progress:val,
+                        },
+                        translateY:{
+                            fromTo:[30,0],
+                            range:[.97+offset,1.07+offset],
+                            progress:val,
+                        },
+                    });
+                }
             }
         },
         data(){
             return{
-                titleBgStyle:{
-                    transform:null,
-                },
-                titleTextStyle:{
-                    transform:null,
-                },
-                titleNumStyle:{
-                    transform:null,
-                },
-                mainBgStyle:{
-                    transform:null,
-                },
-                mainType01Style:{
-                    transform:null,
-                },
-                mainSummary01Style:{
-                    transform:null,
-                    opacity:0,
-                },
-                mainBottom01Style:{
-                    transform:null,
-                    opacity:0,
-                },
-                mainSize10Style:{
-                    transform:null,
-                },
-                mainSize11Style:{
-                    transform:null,
-                },
-                mainText10Style:{
-                    transform:null,
-                    opacity:1,
-                },
-                mainText11Style:{
-                    transform:null,
-                    opacity:1,
-                },
+                titleBgStyle:null,
+                titleTextStyle:null,
+                titleNumStyle:null,
+                mainBgStyle:null,
+                mainType01Style:null,
+                mainSummary01Style:null,
+                mainBottom01Style:null,
+                mainSize10Style:null,
+                mainSize11Style:null,
+                mainText10Style:null,
+                mainText11Style:null,
 
 
-                mainType02Style:{
-                    transform:null,
-                },
-                mainSummary02Style:{
-                    transform:null,
-                    opacity:0,
-                },
-                mainBottom02Style:{
-                    transform:null,
-                    opacity:0,
-                },
-                mainSize20Style:{
-                    transform:null,
-                },
-                mainSize21Style:{
-                    transform:null,
-                },
-                mainText20Style:{
-                    transform:null,
-                    opacity:1,
-                },
-                mainText21Style:{
-                    transform:null,
-                    opacity:1,
-                }
+                mainType02Style:null,
+                mainSummary02Style:null,
+                mainBottom02Style:null,
+                mainSize20Style:null,
+                mainSize21Style:null,
+                mainText20Style:null,
+                mainText21Style:null
             }
         },
         computed:{

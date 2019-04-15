@@ -16,10 +16,8 @@
 	"keywords": [],
 	"author": "djkong",
 	"license": "ISC",
-	"devDependencies": {
-		
-	},
+	"devDependencies": {},
 	"dependencies": {
-		
+		"d3-ease": "^1.0.5"
 	}
 }

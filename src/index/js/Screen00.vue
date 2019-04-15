@@ -14,23 +14,39 @@
         props:['progress'],
         watch:{
             progress(val){
-                const progress = Math.max(val-1,0);
-                this.bg2Style.transform=`scale(${1+progress/1.6})`;
-                this.bg1Style.transform=`translateY(${progress*160}px)`;
-                this.textStyle.transform=`translateY(${progress*60}px)`;
+                this.bg2Style = this.$parent.tweenCss({
+                    scale:{
+                        fromTo:[1,2],
+                        range:[1,2.5],
+                        progress:val,
+                    },
+                });
+                this.bg1Style = this.$parent.tweenCss({
+                    translateY:{
+                        fromTo:[0,450],
+                        range:[1,2.5],
+                        progress:val, 
+                    },
+                    translateX:{
+                        fromTo:[0,-30],
+                        range:[1,2.5],
+                        progress:val, 
+                    }
+                });
+                this.textStyle = this.$parent.tweenCss({
+                    translateY:{
+                        fromTo:[0,60],
+                        range:[1,1.8],
+                        progress:val, 
+                    }
+                });
             }
         },
         data(){
             return{
-                bg2Style:{
-                    transform:null,
-                },
-                bg1Style:{
-                    transform:null,
-                },
-                textStyle:{
-                    transform:null,
-                }
+                bg2Style:null,
+                bg1Style:null,
+                textStyle:null
             }
         },
         computed:{
