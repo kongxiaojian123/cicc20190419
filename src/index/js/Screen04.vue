@@ -53,17 +53,56 @@
             </div>
         </div>
         <div class="title ps-167">
-            <div class="bg ps-171"></div>
-            <div class="text ps-10"></div>
-            <div class="num04 ps-169"></div>
+            <div class="bg ps-171" :style="mainBgStyle"></div>
+            <div class="text ps-10" :style="mainTextStyle"></div>
+            <div class="num04 ps-169" :style="mainNumStyle"></div>
         </div>
         </div>
 </template>
 <script >
     export default {
+        props:['progress','screen'],
+        watch:{
+            progress(val){
+                this.mainNumStyle = this.$parent.tweenCss({
+                    translateX:{
+                        fromTo:[400,-50],
+                        range:[-.1,1.2*this.screen],
+                        progress:val,
+                        easing:'easeQuadOut'
+                    },
+                    translateY:{
+                        fromTo:[-100,100],
+                        range:[0,1.2*this.screen],
+                        progress:val,
+                    },
+                    scale:{
+                        fromTo:[2,1],
+                        range:[-.05,.5*this.screen], 
+                        progress:val,
+                        easing:'easeQuadOut'
+                    },
+                });
+                this.mainBgStyle = this.$parent.tweenCss({
+                    translateY:{
+                        fromTo:[-100,0],
+                        range:[-.02,.5*this.screen],
+                        progress:val,
+                    },  
+                    translateX:{
+                        fromTo:[-200,0],
+                        range:[0.1,.5*this.screen],
+                        progress:val,
+                        easing:'easeQuadOut'
+                    },
+                });
+            }
+        },
         data(){
             return{
-                
+                mainNumStyle:null,
+                mainBgStyle:null,
+                mainTextStyle:null,
             }
         },
         computed:{
