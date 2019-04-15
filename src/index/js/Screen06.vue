@@ -4,7 +4,9 @@
         <div class="main ps-264">
             <div class="chart ps-271">
                 <div class="title ps-273"></div>
-                <div class="canvas ps-31"></div>
+                <canvas class="canvas pie ps-31" ref="canvas0"/>
+                <canvas class="canvas pie ps-31" ref="canvas1"/>
+                <canvas class="canvas pie ps-31" ref="canvas2"/>
                 <div class="text2 ps-285"></div>
                 <div class="text1 ps-283"></div>
                 <div class="text0 ps-277"></div>
@@ -23,11 +25,53 @@
         </div>
 </template>
 <script >
+import Pie from './lib/pie.ts';
+    let pie0,pie1,pie2;
     export default {
+        props:['progress','screen'],
+        watch:{
+            progress(val){
+                pie0.render({
+                    progress:this.$parent.tween({
+                        progress:{
+                            fromTo:[0,1],
+                            range:[.6,.1*this.screen],
+                            progress:val,
+                        },
+                    }).progress,
+                    data:this.pieData0
+                });
+            }
+        },
         data(){
             return{
-                
+                pieData0:[
+                    {range:[0,0.36],color:'#860c10',},
+                    {range:[0.36,0.64],color:'#c0a16e',},
+                ],
+                pieData1:[
+                    {range:[0.32,0.04],color:'#a81e23',},
+                    {range:[0.97,0.03],color:'#cfae81',},
+                ],
+                pieData2:[
+                    {range:[0,0.11],color:'#095183',},
+                    {range:[0.11,0.07],color:'#b6171e',},
+                    {range:[0.86,0.11],color:'#aa1e23',},
+                ]
             }
+        },
+        mounted(){
+            pie0=new Pie(this.$refs.canvas0);
+            pie1=new Pie(this.$refs.canvas1);
+            pie2=new Pie(this.$refs.canvas2);
+            pie1.render({
+                progress:1,
+                data:this.pieData1
+            });
+            pie2.render({
+                progress:1,
+                data:this.pieData2
+            });
         },
         computed:{
         },
@@ -137,6 +181,7 @@
                     left:49.819495%;
                     top:64.945652%;
                     background:url("../assets/canvas.ps-31.png") no-repeat center;
+                    background-image: none;
                 }
                 .ps-273{
                     position:absolute;

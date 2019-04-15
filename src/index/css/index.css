@@ -22,3 +22,10 @@ body{
 .fade-enter, .fade-leave-to, .fadeout-leave-to{
     opacity: 0;
 }
+.pie{
+    position: absolute;
+    width: 280rpx;
+    height: 280rpx;
+    -webkit-mask:url("../assets/canvas.mask.ps-31.png") no-repeat;
+    -webkit-mask-size:contain; 
+}
