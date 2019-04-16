@@ -1,26 +1,108 @@
 <template>
     <div class="screen05 ps-242">
         <div class="main ps-252">
-            <div class="bg ps-250"></div>
-            <div class="text4 ps-70"></div>
-            <div class="text3 ps-68"></div>
-            <div class="text2 ps-69"></div>
-            <div class="text1 ps-67"></div>
-            <div class="text0 ps-66"></div>
+            <div class="bg ps-250" :style="mainBgStyle"></div>
+            <div class="text text4 ps-70" :style="mainText4Style"></div>
+            <div class="text text3 ps-68" :style="mainText3Style"></div>
+            <div class="text text2 ps-69" :style="mainText2Style"></div>
+            <div class="text text1 ps-67" :style="mainText1Style"></div>
+            <div class="text text0 ps-66" :style="mainText0Style"></div>
         </div>
         <div class="title ps-244">
-            <div class="bg ps-23"></div>
-            <div class="text ps-248"></div>
-            <div class="num05 ps-258"></div>
+            <div class="bg ps-23" :style="titleBgStyle"></div>
+            <div class="text ps-248" :style="titleTextStyle"></div>
+            <div class="num05 ps-258" :style="titleNumStyle"></div>
         </div>
         </div>
 </template>
 <script >
+    let pixelScale;
     export default {
+        props:['progress','screen'],
+        watch:{
+            progress(val){
+                this.titleNumStyle=this.$parent.tweenCss({
+                    translateY:{
+                        fromTo:[-180,50],
+                        range:[-.15,1.3*this.screen],
+                        progress:val,
+                    },
+                    translateX:{
+                        fromTo:[-180,50],
+                        range:[-.15,1.3*this.screen],
+                        progress:val,
+                    },
+                });
+                this.titleBgStyle = this.$parent.tweenCss({
+                    rotateZ:{
+                        fromTo:[-10,10],
+                        range:[0,1.5*this.screen],
+                        progress:val,
+                    },
+                    translateY:{
+                        fromTo:[-50,50],
+                        range:[0,1.5*this.screen],
+                        progress:val,
+                    },
+                });
+                this.titleTextStyle = this.$parent.tweenCss({
+                    scale:{
+                        fromTo:[1.2,1],
+                        range:[.25,.25*this.screen],
+                        progress:val,
+                        easing:'easeBackOut'
+                    },
+                    opacity:{
+                        fromTo:[0,1],
+                        range:[.25,.1*this.screen],
+                        progress:val,
+                    },
+                });
+                const mainBgStyle = this.$parent.tween({
+                    data:{
+                        fromTo:[-100*pixelScale,100*pixelScale],
+                        range:[0,2*this.screen],
+                        progress:val,
+                    },
+                }).data;
+                this.mainBgStyle = {
+                    backgroundPosition:`center ${mainBgStyle}px`,
+                    transform:`translate(${(mainBgStyle+100*pixelScale)*.8}px,${-mainBgStyle*1.2+10}px)`,
+                };
+
+                for(let i=0;i<5;i++){
+                    this[`mainText${i}Style`]=this.$parent.tweenCss({
+                        scale:{
+                            fromTo:[.2,1],
+                            range:[.45+i*.1,.25*this.screen],
+                            progress:val,
+                            easing:'easeBackOut'
+                        },
+                        opacity:{
+                            fromTo:[0,1],
+                            range:[.45+i*.1,.1*this.screen],
+                            progress:val,
+                        },
+                    });
+                }
+            }
+        },
         data(){
             return{
-                
+                titleNumStyle:null,
+                titleTextStyle:null,
+                titleBgStyle:null,
+                mainBgStyle:null,
+
+                mainText0Style:null,
+                mainText1Style:null,
+                mainText2Style:null,
+                mainText3Style:null,
+                mainText4Style:null,
             }
+        },
+        mounted(){
+            pixelScale = window.innerWidth/640;
         },
         computed:{
         },
@@ -37,6 +119,11 @@
         position:relative;
         width:640rpx;
         height:1092rpx;
+        .main{
+            .text{
+                transform-origin: left center;
+            }
+        }
         .ps-244{
             position:absolute;
             left:55.078125%;
@@ -106,7 +193,9 @@
                 position:absolute;
                 left:56.09375%;
                 top:50%;
-                background:url("../assets/bg.ps-250.png") no-repeat center;
+                -webkit-mask: url("../assets/bg.mask.ps-250.png") no-repeat center;
+                -webkit-mask-size:contain; 
+                background:url("../assets/bg.ps-250.jpg") no-repeat center; 
             }
         }
     }

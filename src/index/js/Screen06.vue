@@ -27,7 +27,6 @@
 <script >
 import Pie from './lib/pie.ts';
     let pie0,pie1,pie2;
-    let pixelScale;
     export default {
         props:['progress','screen'],
         watch:{
