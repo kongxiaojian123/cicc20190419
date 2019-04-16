@@ -542,7 +542,11 @@
                     position:absolute;
                     left:50%;
                     top:57.142857%;
-                    background:url("../assets/bg.ps-43.png") no-repeat center;
+                    width: 508rpx;
+                    height: 156rpx;
+                    margin-left: -508/2rpx;
+                    margin-top: -156/2rpx;
+                    background:rgba(#fff,.9);
                 }
             }
             .ps-187{
@@ -575,7 +579,11 @@
                     position:absolute;
                     left:50%;
                     top:52.870091%;
-                    background:url("../assets/bg.ps-191.png") no-repeat center;
+                    width: 508rpx;
+                    height: 312rpx;
+                    margin-left: -508/2rpx;
+                    margin-top: -312/2rpx;
+                    background:rgba(#fff,.9);
                 }
             }
             .ps-198{
@@ -614,7 +622,11 @@
                     position:absolute;
                     left:50%;
                     top:52.487562%;
-                    background:url("../assets/bg.ps-12.png") no-repeat center;
+                    width: 508rpx;
+                    height: 382rpx;
+                    margin-left: -508/2rpx;
+                    margin-top: -382/2rpx;
+                    background:rgba(#fff,.9);
                 }
             }
             .ps-207{
@@ -641,7 +653,11 @@
                     position:absolute;
                     left:50%;
                     top:55.847953%;
-                    background:url("../assets/bg.ps-13.png") no-repeat center;
+                    width: 508rpx;
+                    height: 151rpx;
+                    margin-left: -508/2rpx;
+                    margin-top: -151/2rpx;
+                    background:rgba(#fff,.9);
                 }
             }
             .ps-212{
@@ -674,7 +690,12 @@
                     position:absolute;
                     left:50%;
                     top:53.991597%;
-                    background:url("../assets/bg.ps-14.png") no-repeat center;
+                    
+                    width: 508rpx;
+                    height: 219rpx;
+                    margin-left: -508/2rpx;
+                    margin-top: -219/2rpx;
+                    background:rgba(#fff,.9);
                 }
             }
             .ps-220{
@@ -785,7 +806,11 @@
                     position:absolute;
                     left:50%;
                     top:51.216389%;
-                    background:url("../assets/bg.ps-15.png") no-repeat center;
+                    width: 508rpx;
+                    height: 762rpx;
+                    margin-left: -508/2rpx;
+                    margin-top: -762/2rpx;
+                    background:rgba(#fff,.9);
                 }
             }
             .ps-179{

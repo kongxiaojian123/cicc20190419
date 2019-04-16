@@ -123,5 +123,5 @@
                 background:url("../assets/bg2.ps-428.png") no-repeat center;
             }
         }
-    }
+    } 
 </style>

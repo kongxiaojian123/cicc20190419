@@ -423,7 +423,7 @@
                     position:absolute;
                     left:24.296875%;
                     top:93.009119%;
-                    background:url("../assets/date.ps-562.png") no-repeat center;
+                    background:url("../assets/date.png") no-repeat center;
                 }
             }
             .ps-542{
@@ -503,14 +503,14 @@
                         position:absolute;
                         left:50%;
                         top:93.911917%;
-                        background:url("../assets/bottom.ps-108.png") no-repeat center;
+                        background:url("../assets/bottom.ps-67.png") no-repeat center;
                     }
                 }
                 .ps-566{
                     position:absolute;
                     left:26.996528%;
                     top:98.568873%;
-                    background:url("../assets/date.ps-566.png") no-repeat center;
+                    background:url("../assets/date.png") no-repeat center;
                 }
             }
         }

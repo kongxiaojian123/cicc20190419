@@ -445,7 +445,7 @@
                     position:absolute;
                     left:24.296875%;
                     top:93.722628%;
-                    background:url("../assets/date.ps-448.png") no-repeat center;
+                    background:url("../assets/date.png") no-repeat center;
                 }
             }
             .ps-468{
@@ -538,7 +538,7 @@
                     position:absolute;
                     left:27.043478%;
                     top:98.601399%;
-                    background:url("../assets/date.ps-476.png") no-repeat center;
+                    background:url("../assets/date.png") no-repeat center;
                 }
             }
         }

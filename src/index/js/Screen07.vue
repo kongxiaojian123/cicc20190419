@@ -79,7 +79,7 @@ import Pie from './lib/pie.ts';
                 ],
                 pieData1:[
                     {range:[0,0.06],color:'#a5825e',},
-                    {range:[0.06,0.03],color:'#d58d53',},
+                    {range:[0.06,0.03],color:'#d58d53',}, 
                     {range:[0.09,0.12],color:'#9f1e23',},
                     {range:[0.21,0.02],color:'#20618e',},
                     {range:[0.23,0.02],color:'#dac098',},
@@ -264,7 +264,7 @@ import Pie from './lib/pie.ts';
                             position:absolute;
                             left:25.9375%;
                             top:92.165242%;
-                            background:url("../assets/date.ps-176.png") no-repeat center;
+                            background:url("../assets/date.png") no-repeat center;
                         }
                     }
                 }
@@ -324,7 +324,7 @@ import Pie from './lib/pie.ts';
                             position:absolute;
                             left:25.9375%;
                             top:93.570451%;
-                            background:url("../assets/date.ps-200.png") no-repeat center;
+                            background:url("../assets/date.png") no-repeat center;
                         }
                     }
                 }
@@ -352,7 +352,7 @@ import Pie from './lib/pie.ts';
                         position:absolute;
                         left:2.683897%;
                         top:23.376623%;
-                        background:url("../assets/flag.ps-237.png") no-repeat center;
+                        background:url("../assets/flag.png") no-repeat center;
                     }
                     .ps-231{
                         position:absolute;
@@ -373,7 +373,7 @@ import Pie from './lib/pie.ts';
                         position:absolute;
                         left:2.854123%;
                         top:23.076923%;
-                        background:url("../assets/flag.ps-226.png") no-repeat center;
+                        background:url("../assets/flag.png") no-repeat center;
                     }
                     .ps-220{
                         position:absolute;
@@ -394,7 +394,7 @@ import Pie from './lib/pie.ts';
                         position:absolute;
                         left:3.103448%;
                         top:14.876033%;
-                        background:url("../assets/flag.ps-215.png") no-repeat center;
+                        background:url("../assets/flag.png") no-repeat center;
                     }
                     .ps-209{
                         position:absolute;
@@ -415,7 +415,7 @@ import Pie from './lib/pie.ts';
                         position:absolute;
                         left:3.678474%;
                         top:22.5%;
-                        background:url("../assets/flag.ps-63.png") no-repeat center;
+                        background:url("../assets/flag.png") no-repeat center;
                     }
                     .ps-19{
                         position:absolute;

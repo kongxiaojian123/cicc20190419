@@ -418,7 +418,7 @@
                     position:absolute;
                     left:61.01083%;
                     top:56.415929%;
-                    background:url("../assets/bg.ps-1107.png") no-repeat center;
+                    background:url("../assets/bg.ps-1105.png") no-repeat center;
                     .ps-1043{
                         position:absolute;
                         left:57.75463%;
@@ -453,7 +453,7 @@
                                     position:absolute;
                                     left:50%;
                                     top:92.5%;
-                                    background:url("../assets/mask.ps-1108.png") no-repeat center;
+                                    background:url("../assets/mask.png") no-repeat center;
                                 }
                                 .ps-1051{
                                     position:absolute;
@@ -493,7 +493,7 @@
                                     position:absolute;
                                     left:50%;
                                     top:95.360825%;
-                                    background:url("../assets/mask.ps-1109.png") no-repeat center;
+                                    background:url("../assets/mask.png") no-repeat center;
                                 }
                                 .ps-1067{
                                     position:absolute;
@@ -533,7 +533,7 @@
                                     position:absolute;
                                     left:50%;
                                     top:96.498054%;
-                                    background:url("../assets/mask.ps-1110.png") no-repeat center;
+                                    background:url("../assets/mask.png") no-repeat center;
                                 }
                                 .ps-77{
                                     position:absolute;
@@ -553,7 +553,7 @@
                     position:absolute;
                     left:28.068592%;
                     top:98.820059%;
-                    background:url("../assets/date.ps-590.png") no-repeat center;
+                    background:url("../assets/date.png") no-repeat center;
                 }
             }
             .ps-588{
@@ -609,7 +609,7 @@
                                     position:absolute;
                                     left:50%;
                                     top:89.655172%;
-                                    background:url("../assets/mask.ps-1112.png") no-repeat center;
+                                    background:url("../assets/mask.png") no-repeat center;
                                 }
                                 .ps-195{
                                     position:absolute;
@@ -649,7 +649,7 @@
                                     position:absolute;
                                     left:50%;
                                     top:93.75%;
-                                    background:url("../assets/mask.ps-1113.png") no-repeat center;
+                                    background:url("../assets/mask.png") no-repeat center;
                                 }
                                 .ps-251{
                                     position:absolute;
@@ -689,7 +689,7 @@
                                     position:absolute;
                                     left:50%;
                                     top:96.12069%;
-                                    background:url("../assets/mask.ps-1111.png") no-repeat center;
+                                    background:url("../assets/mask.png") no-repeat center;
                                 }
                                 .ps-347{
                                     position:absolute;
@@ -709,7 +709,7 @@
                     position:absolute;
                     left:28.068592%;
                     top:98.850575%;
-                    background:url("../assets/date.ps-592.png") no-repeat center;
+                    background:url("../assets/date.png") no-repeat center;
                 }
             }
         }
