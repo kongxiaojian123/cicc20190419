@@ -56,6 +56,7 @@ import { swiper } from 'vue-awesome-swiper';
         scrollTo:0,
     };
     let timer:number=null;
+    const fps:number=1000/60;
     const requestAnimationFrame = window.requestAnimationFrame||window.webkitRequestAnimationFrame;
     const cancelAnimationFrame = window.cancelAnimationFrame||window.webkitCancelAnimationFrame;
     @Component({components:{
@@ -92,7 +93,7 @@ import { swiper } from 'vue-awesome-swiper';
                 cancelAnimationFrame(timer);
             }
             if(this.scrollTo!==scrollData.scrollTo){
-                const offset = (scrollData.scrollTo-this.scrollTo)/10;
+                const offset = (scrollData.scrollTo-this.scrollTo)/10*frameScale;
                 if(Math.abs(offset)<0.001){
                     this.scrollTo = scrollData.scrollTo;
                 }else{
@@ -100,7 +101,7 @@ import { swiper } from 'vue-awesome-swiper';
                 }
             }
             timer = requestAnimationFrame((_duration)=>{
-                this.renderScroll(_duration-duration,_duration);
+                this.renderScroll((_duration-duration)/fps,_duration);
             });
         }
         private tween(tweenObj:tweenObj){
@@ -136,7 +137,7 @@ import { swiper } from 'vue-awesome-swiper';
                         transform.push(`translateY(${val*scrollData.pixelScale}px)`);
                     break;
                     case 'scale':
-                        transform.push(`scale(${val})`);
+                        transform.push(`scale(${val})`); 
                     break; 
                     case 'rotateZ':
                         transform.push(`rotateZ(${val}deg)`);

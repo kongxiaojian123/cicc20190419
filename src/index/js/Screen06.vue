@@ -2,20 +2,20 @@
     <div class="screen06">
         <div class="bg ps-293"></div>
         <div class="ps-254">
-            <div class="main ps-264">
+            <div class="main ps-264" :style="chartStyle">
                 <div class="chart ps-271">
-                    <div class="title ps-273"></div>
-                    <canvas class="canvas pie ps-31" ref="canvas0"/>
-                    <canvas class="canvas pie ps-31" ref="canvas1"/>
-                    <canvas class="canvas pie ps-31" ref="canvas2"/>
-                    <div class="text2 ps-285"></div>
-                    <div class="text1 ps-283"></div>
-                    <div class="text0 ps-277"></div>
+                    <div class="title ps-273" :style="chartTitleStyle"></div>
+                    <canvas class="canvas pie ps-31" ref="canvas0" :style="chartPie0Style"/>
+                    <canvas class="canvas pie ps-31" ref="canvas1" :style="chartPie1Style"/>
+                    <canvas class="canvas pie ps-31" ref="canvas2" :style="chartPie2Style"/>
+                    <div class="text2 ps-285" :style="chartText2Style"></div>
+                    <div class="text1 ps-283" :style="chartText1Style"></div>
+                    <div class="text0 ps-277" :style="chartText0Style"></div>
                 </div>
                 <div class="summary ps-266">
-                    <div class="text2 ps-270"></div>
-                    <div class="text1 ps-269"></div>
-                    <div class="text0 ps-268"></div>
+                    <div class="text2 ps-270"  :style="mainSummary2Style"></div>
+                    <div class="text1 ps-269"  :style="mainSummary1Style"></div>
+                    <div class="text0 ps-268"  :style="mainSummary0Style"></div>
                 </div>
             </div>
             <div class="title ps-256">
@@ -33,11 +33,11 @@ import Pie from './lib/pie.ts';
         props:['progress','screen'],
         watch:{
             progress(val){
-                pie0.render({
+                pie0.render({ 
                     progress:this.$parent.tween({
                         progress:{
                             fromTo:[0,1],
-                            range:[.6,.1*this.screen],
+                            range:[.48,.1*this.screen],
                             progress:val,
                         },
                     }).progress,
@@ -76,10 +76,143 @@ import Pie from './lib/pie.ts';
                         progress:val,
                     },
                     translateX:{
-                        fromTo:[-100,0],
+                        fromTo:[-200,0],
                         range:[.05,.3*this.screen],
                         progress:val,
                         easing:"easeBackOut"
+                    },
+                });
+                for(let i=0;i<3;i++){
+                    this[`mainSummary${i}Style`]=this.$parent.tweenCss({
+                        opacity:{
+                            fromTo:[0,1],
+                            range:[.23+i*.01,.1*this.screen],
+                            progress:val,
+                        },
+                        scale:{
+                            fromTo:[1.5,1],
+                            range:[.23+i*.01,.15*this.screen],
+                            progress:val,
+                            easing:"easeBackOut"
+                        },
+                    });
+                }
+                this.chartStyle=this.$parent.tweenCss({
+                    translateY:{
+                        fromTo:[0,1150],
+                        range:[.43,1.6*this.screen],
+                        progress:val, 
+                        easing:'easeSinInOut'
+                    },
+                });
+                this.chartTitleStyle=this.$parent.tweenCss({
+                    opacity:{
+                        fromTo:[0,1],
+                        range:[.32,.1*this.screen],
+                        progress:val, 
+                    },
+                    translateX:{
+                        fromTo:[150,0],
+                        range:[.32,.2*this.screen],
+                        progress:val, 
+                        easing:'easeBackOut'
+                    },
+                });
+                this.chartPie0Style=this.$parent.tweenCss({
+                    opacity:{
+                        fromTo:[0,1],
+                        range:[.48,.05*this.screen],
+                        progress:val, 
+                    },
+                    scale:{
+                        fromTo:[.1,1],
+                        range:[.48,.1*this.screen],
+                        progress:val, 
+                        easing:'easeBackOut'
+                    },
+                });
+                if(val<.73){
+                    this.chartText0Style=this.$parent.tweenCss({
+                        opacity:{
+                            fromTo:[0,1],
+                            range:[.5,.05*this.screen],
+                            progress:val, 
+                        },
+                        scale:{
+                            fromTo:[1.3,1],
+                            range:[.5,.2*this.screen],
+                            progress:val, 
+                            easing:'easeBackOut'
+                        },
+                    });
+                }else{
+                    this.chartText0Style=this.$parent.tweenCss({
+                        opacity:{
+                            fromTo:[1,0],
+                            range:[.73,.05*this.screen],
+                            progress:val, 
+                        },
+                    });
+                }
+
+                this.chartPie1Style=this.$parent.tweenCss({
+                    opacity:{
+                        fromTo:[0,1],
+                        range:[.7,.05*this.screen],
+                        progress:val, 
+                    },
+                    scale:{
+                        fromTo:[1.3,1],
+                        range:[.7,.1*this.screen],
+                        progress:val,
+                    },
+                });
+                if(val<.93){
+                    this.chartText1Style=this.$parent.tweenCss({
+                        opacity:{
+                            fromTo:[0,1],
+                            range:[.73,.05*this.screen],
+                            progress:val, 
+                        },
+                        scale:{
+                            fromTo:[1.3,1],
+                            range:[.73,.2*this.screen],
+                            progress:val, 
+                            easing:'easeBackOut'
+                        },
+                    });
+                }else{
+                    this.chartText1Style=this.$parent.tweenCss({
+                        opacity:{
+                            fromTo:[1,0],
+                            range:[.93,.05*this.screen],
+                            progress:val, 
+                        },
+                    });
+                }
+                this.chartPie2Style=this.$parent.tweenCss({
+                    opacity:{
+                        fromTo:[0,1],
+                        range:[.9,.05*this.screen],
+                        progress:val, 
+                    },
+                    scale:{
+                        fromTo:[1.3,1],
+                        range:[.9,.1*this.screen],
+                        progress:val,
+                    },
+                });
+                this.chartText2Style=this.$parent.tweenCss({
+                    opacity:{
+                        fromTo:[0,1],
+                        range:[.93,.05*this.screen],
+                        progress:val, 
+                    },
+                    scale:{
+                        fromTo:[1.3,1],
+                        range:[.93,.2*this.screen],
+                        progress:val, 
+                        easing:'easeBackOut'
                     },
                 });
             }
@@ -89,6 +222,18 @@ import Pie from './lib/pie.ts';
                 titleBgStyle:null,
                 titleTextStyle:null,
                 titleNumStyle:null,
+                mainSummary0Style:null,
+                mainSummary1Style:null,
+                mainSummary2Style:null,
+                chartTitleStyle:null,
+                chartStyle:null,
+                chartPie0Style:null,
+                chartText0Style:null,
+                chartPie1Style:null,
+                chartText1Style:null,
+                chartPie2Style:null,
+                chartText2Style:null,
+
                 pieData0:[
                     {range:[0,0.36],color:'#860c10',},
                     {range:[0.36,0.64],color:'#c0a16e',},
