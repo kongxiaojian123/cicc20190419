@@ -41,6 +41,7 @@
                     }
                 });
                 this.bg0Style={
+                    transform:`translate3d(0,0,0)`,
                     backgroundPosition:`left ${
                         this.$parent.tween({
                             backgroundPosition:{

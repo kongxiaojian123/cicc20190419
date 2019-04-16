@@ -130,8 +130,8 @@
                     },
                 }).data;
                 this.mainBg2Style = {
-                    backgroundPosition:`${-bg2Style*pixelScale}px center`,
-                    transform:`translateY(${(bg2Style-150)*pixelScale*1.5}px)`
+                    backgroundPosition:`${-bg2Style*pixelScale}px center`, 
+                    transform:`translate3d(0,${(bg2Style-150)*pixelScale*1.5}px,0)`  
                 };
 
                 {

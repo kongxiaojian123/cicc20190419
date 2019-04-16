@@ -1,28 +1,30 @@
 <template>
-    <div class="screen06 ps-254">
+    <div class="screen06">
         <div class="bg ps-293"></div>
-        <div class="main ps-264">
-            <div class="chart ps-271">
-                <div class="title ps-273"></div>
-                <canvas class="canvas pie ps-31" ref="canvas0"/>
-                <canvas class="canvas pie ps-31" ref="canvas1"/>
-                <canvas class="canvas pie ps-31" ref="canvas2"/>
-                <div class="text2 ps-285"></div>
-                <div class="text1 ps-283"></div>
-                <div class="text0 ps-277"></div>
+        <div class="ps-254">
+            <div class="main ps-264">
+                <div class="chart ps-271">
+                    <div class="title ps-273"></div>
+                    <canvas class="canvas pie ps-31" ref="canvas0"/>
+                    <canvas class="canvas pie ps-31" ref="canvas1"/>
+                    <canvas class="canvas pie ps-31" ref="canvas2"/>
+                    <div class="text2 ps-285"></div>
+                    <div class="text1 ps-283"></div>
+                    <div class="text0 ps-277"></div>
+                </div>
+                <div class="summary ps-266">
+                    <div class="text2 ps-270"></div>
+                    <div class="text1 ps-269"></div>
+                    <div class="text0 ps-268"></div>
+                </div>
             </div>
-            <div class="summary ps-266">
-                <div class="text2 ps-270"></div>
-                <div class="text1 ps-269"></div>
-                <div class="text0 ps-268"></div>
+            <div class="title ps-256">
+                <div class="bg ps-26" :style="titleBgStyle"></div>
+                <div class="text ps-28" :style="titleTextStyle"></div>
+                <div class="num06 ps-260" :style="titleNumStyle"></div>
             </div>
         </div>
-        <div class="title ps-256">
-            <div class="bg ps-26"></div>
-            <div class="text ps-28"></div>
-            <div class="num06 ps-260"></div>
-        </div>
-        </div>
+    </div>
 </template>
 <script >
 import Pie from './lib/pie.ts';
@@ -41,10 +43,52 @@ import Pie from './lib/pie.ts';
                     }).progress,
                     data:this.pieData0
                 });
+                this.titleNumStyle=this.$parent.tweenCss({
+                    translateY:{
+                        fromTo:[-180,50],
+                        range:[0,1.3*this.screen],
+                        progress:val,
+                        easing:"easeQuadOut"
+                    },
+                    translateX:{
+                        fromTo:[130,-100],
+                        range:[0,1.3*this.screen],
+                        progress:val,
+                    },
+                });
+                this.titleBgStyle=this.$parent.tweenCss({
+                    translateY:{
+                        fromTo:[-50,50],
+                        range:[0,1.3*this.screen],
+                        progress:val,
+                        easing:"easeQuadOut"
+                    },
+                    translateX:{
+                        fromTo:[-30,100],
+                        range:[0,1.3*this.screen],
+                        progress:val,
+                    },
+                });
+                this.titleTextStyle=this.$parent.tweenCss({
+                    opacity:{
+                        fromTo:[0,1],
+                        range:[.05,.1*this.screen],
+                        progress:val,
+                    },
+                    translateX:{
+                        fromTo:[-100,0],
+                        range:[.05,.3*this.screen],
+                        progress:val,
+                        easing:"easeBackOut"
+                    },
+                });
             }
         },
         data(){
             return{
+                titleBgStyle:null,
+                titleTextStyle:null,
+                titleNumStyle:null,
                 pieData0:[
                     {range:[0,0.36],color:'#860c10',},
                     {range:[0.36,0.64],color:'#c0a16e',},
@@ -84,6 +128,23 @@ import Pie from './lib/pie.ts';
     };
 </script>
 <style lang="postcss" scoped>
+.screen06{
+    position: relative;
+    width: 640rpx;
+    height: 2400rpx;
+}
+    .ps-293{
+        position:absolute;
+        left: 0;
+        top:58.667737%;
+        width: 640rpx;
+        height: 2560rpx;
+        margin-top: -2560/2rpx;
+        -webkit-mask: url("../assets/bg.mask.ps-173.png") no-repeat center;
+        -webkit-mask-size: contain;
+        background:url("../assets/bg.ps-293.jpg") no-repeat center;
+        background-size: cover;
+    }
     .ps-254{
         position:relative;
         width:640rpx;
@@ -190,12 +251,6 @@ import Pie from './lib/pie.ts';
                     background:url("../assets/title.ps-273.png") no-repeat center;
                 }
             }
-        }
-        .ps-293{
-            position:absolute;
-            left:50%;
-            top:58.667737%;
-            background:url("../assets/bg.ps-293.png") no-repeat center;
         }
     }
 </style>

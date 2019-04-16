@@ -67,7 +67,7 @@
                 }).data;
                 this.mainBgStyle = {
                     backgroundPosition:`center ${mainBgStyle}px`,
-                    transform:`translate(${(mainBgStyle+100*pixelScale)*.8}px,${-mainBgStyle*1.2+10}px)`,
+                    transform:`translate3d(${(mainBgStyle+100*pixelScale)*.8}px,${-mainBgStyle*1.2+10}px,0)`,
                 };
 
                 for(let i=0;i<5;i++){

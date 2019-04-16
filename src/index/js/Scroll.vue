@@ -14,6 +14,7 @@
             <Screen04 :progress="subProgress[4]" :screen="subScreen[4]"/>
             <Screen05 :progress="subProgress[5]" :screen="subScreen[5]"/>
             <Screen06 :progress="subProgress[6]" :screen="subScreen[6]"/>
+            <Screen07 :progress="subProgress[7]" :screen="subScreen[7]"/>
         </div>
     </div>
 </template>
@@ -28,6 +29,7 @@
     import Screen04 from './screen04.vue';
     import Screen05 from './screen05.vue';
     import Screen06 from './screen06.vue';
+    import Screen07 from './screen07.vue';
 import { swiper } from 'vue-awesome-swiper';
     interface tweenObj{
         [key:string]:{
@@ -57,10 +59,14 @@ import { swiper } from 'vue-awesome-swiper';
     const requestAnimationFrame = window.requestAnimationFrame||window.webkitRequestAnimationFrame;
     const cancelAnimationFrame = window.cancelAnimationFrame||window.webkitCancelAnimationFrame;
     @Component({components:{
-        Screen00,Screen01,Screen02,Screen03,Screen04,Screen05,Screen06,
-    }})
+        Screen00,Screen01,Screen02,Screen03,Screen04,Screen05,Screen06,Screen07,
+    }}) 
     export default class Screen extends Vue {
         private scrollTo:number=0;
+        private lalala:number=1;
+        @Watch('lalala') lalalaChange(val){
+            this.scrollSeek(val);
+        }
         @Watch('scrollTo')private scrollToChange(val){
             const scrollBottom = val+scrollData.screenHeight;
             const scrollBottom2 = scrollBottom+scrollData.screenHeight;
@@ -144,6 +150,9 @@ import { swiper } from 'vue-awesome-swiper';
                 transform:transform.join(' '),
                 opacity:opacity,
             };
+        }
+        private scrollSeek(val:number){
+            this.scrollTo = scrollData.scrollTo = val;
         }
         private mounted(){
             scrollData.screenHeight = window.innerHeight;
