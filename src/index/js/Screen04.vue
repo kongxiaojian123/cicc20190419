@@ -505,14 +505,18 @@
             position:absolute;
             left:50%;
             top:57.075788%;
-            background:url("../assets/bg.mask.ps-173.png") no-repeat center;
-            background-image:none;
+            width: 640rpx;
+            height: 2560rpx;
+            margin-left: -640/2rpx;
+            margin-top: -2560/2rpx;
             .bg2{
                 position: absolute;
                 top: 0;left: 0;
+                width: 100%;height: 100%;
                 -webkit-mask:url("../assets/bg.mask.ps-173.png") no-repeat; 
                 -webkit-mask-size:contain;
                 background:url("../assets/bg.ps-173.jpg") no-repeat left center;
+                background-size: cover;
             }
             .ps-183{
                 position:absolute;

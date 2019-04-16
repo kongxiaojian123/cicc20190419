@@ -24,7 +24,7 @@
                 <div class="data1 ps-184">
                     <div class="main ps-191">
                         <div class="date ps-200"></div>
-                        <div class="canvas pie ps-195"></div>
+                        <canvas class="canvas pie ps-195" ref="canvas1"></canvas>
                         <div class="text ps-198"></div>
                         <div class="title ps-193"></div>
                     </div>
@@ -36,7 +36,7 @@
                 <div class="data0 ps-182">
                     <div class="main ps-174">
                         <div class="date ps-176"></div>
-                        <div class="canvas pie ps-166"></div>
+                        <canvas class="canvas pie ps-166" ref="canvas0"></canvas>
                         <div class="text ps-168"></div>
                         <div class="title ps-178"></div>
                     </div>
@@ -63,11 +63,47 @@
         </div>
 </template>
 <script >
+import Pie from './lib/pie.ts';
+    let pie0,pie1;
     export default {
         data(){
             return{
-                
-            }
+                pieData0:[
+                    {range:[0,0.03],color:'#dec094',},
+                    {range:[0.03,0.22],color:'#9f1e23',},
+                    {range:[0.25,0.09],color:'#20618e',},
+                    {range:[0.34,0.22],color:'#c6a572',},
+                    {range:[0.56,0.01],color:'#b4171e',},
+                    {range:[0.57,0.02],color:'#c6c9d1',},
+                    {range:[0.59,0.41],color:'#860c10',},
+                ],
+                pieData1:[
+                    {range:[0,0.06],color:'#a5825e',},
+                    {range:[0.06,0.03],color:'#d58d53',},
+                    {range:[0.09,0.12],color:'#9f1e23',},
+                    {range:[0.21,0.02],color:'#20618e',},
+                    {range:[0.23,0.02],color:'#dac098',},
+                    {range:[0.25,0.22],color:'#860c10',},
+                    {range:[0.47,0.29],color:'#c6a572',},
+                    {range:[0.76,0.04],color:'#0f4b80',},
+                    {range:[0.8,0.07],color:'#a81e23',},
+                    {range:[0.87,0.1],color:'#c6c9d1',},
+                    {range:[0.97,0.01],color:'#bb0000',},
+                    {range:[0.98,0.02],color:'#666666',},
+                ],
+            } 
+        },
+        mounted(){
+            pie0=new Pie(this.$refs.canvas0);
+            pie1=new Pie(this.$refs.canvas1);
+            pie0.render({
+                progress:1,
+                data:this.pieData0
+            });
+            pie1.render({
+                progress:1,
+                data:this.pieData1
+            });
         },
         computed:{
         },
@@ -222,7 +258,7 @@
                             position:absolute;
                             left:50%;
                             top:51.780627%;
-                            background:url("../assets/canvas.pie.ps-166.png") no-repeat center;
+                            /* background:url("../assets/canvas.pie.ps-166.png") no-repeat center; */
                         }
                         .ps-176{
                             position:absolute;
@@ -282,7 +318,7 @@
                             position:absolute;
                             left:50%;
                             top:53.214774%;
-                            background:url("../assets/canvas.pie.ps-195.png") no-repeat center;
+                            /* background:url("../assets/canvas.pie.ps-195.png") no-repeat center; */
                         }
                         .ps-200{
                             position:absolute;

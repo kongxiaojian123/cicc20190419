@@ -26,6 +26,8 @@ body{
     position: absolute;
     width: 280rpx;
     height: 280rpx;
+    margin-left: -280/2rpx;
+    margin-top: -280/2rpx;
     -webkit-mask:url("../assets/canvas.mask.ps-31.png") no-repeat;
     -webkit-mask-size:contain; 
 }

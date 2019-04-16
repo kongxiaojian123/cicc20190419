@@ -386,8 +386,8 @@ import Pie from './lib/pie.ts';
                     position:absolute;
                     left:49.819495%;
                     top:64.945652%;
-                    background:url("../assets/canvas.ps-31.png") no-repeat center;
-                    background-image: none;
+                    /* background:url("../assets/canvas.ps-31.png") no-repeat center;
+                    background-image: none; */
                 }
                 .ps-273{
                     position:absolute;

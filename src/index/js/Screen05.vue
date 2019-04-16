@@ -193,9 +193,14 @@
                 position:absolute;
                 left:56.09375%;
                 top:50%;
+                width: 562rpx;
+                height: 765rpx;
+                margin-left: -562/2rpx;
+                margin-top: -765/2rpx;
                 -webkit-mask: url("../assets/bg.mask.ps-250.png") no-repeat center;
                 -webkit-mask-size:contain; 
                 background:url("../assets/bg.ps-250.jpg") no-repeat center; 
+                background-size: cover;
             }
         }
     }
