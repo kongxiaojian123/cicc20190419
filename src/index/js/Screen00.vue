@@ -4,7 +4,11 @@
             <div class="bg2 ps-428" :style="bg2Style"></div>
             <div class="bg1 ps-426" :style="bg1Style"></div>
             <div class="bg0 ps-430" :style="bg0Style"></div>
-            <div class="text ps-163" :style="textStyle"></div>
+            <div class="text ps-163" :style="textStyle">
+                <span class="text2"></span>
+                <span class="text1"></span>
+                <span class="text0"></span>
+            </div>
         </div>
         <div class="logo ps-434"></div>
         </div>
@@ -77,6 +81,17 @@
         position:relative;
         width:640rpx;
         height:1188rpx;
+        .ps-163{
+            .text0{
+                
+            } 
+            .text1{
+                
+            }
+            .text2{
+                
+            }
+        }
         .ps-434{
             position:absolute;
             left:29.609375%;
@@ -95,7 +110,10 @@
                 position:absolute;
                 left:61.484375%;
                 top:50.227273%;
-                background:url("../assets/text.ps-163.png") no-repeat center;
+                width: 301rpx;
+                height: 259rpx;
+                margin-left: -301/2rpx;
+                margin-top: -259/2rpx;
             }
             .ps-430{
                 position:absolute;
