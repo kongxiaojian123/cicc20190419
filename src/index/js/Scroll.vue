@@ -62,7 +62,7 @@ import { swiper } from 'vue-awesome-swiper';
     @Component({components:{
         Screen00,Screen01,Screen02,Screen03,Screen04,Screen05,Screen06,Screen07,
     }}) 
-    export default class Screen extends Vue {
+    export default class F2eScroll extends Vue {
         private scrollTo:number=0;
         private lalala:number=1;
         @Watch('lalala') lalalaChange(val){
@@ -82,6 +82,7 @@ import { swiper } from 'vue-awesome-swiper';
         private subScreen:number[]=[];//一屏高占相应的进度
         private scrollEvent({touches}:TouchEvent,init:boolean=false){
             const pageY = touches[0].pageY;
+            // console.log(pageY);
             if(!init){
                 const offsetY = -(pageY-scrollData.oldY)*2;
                 scrollData.scrollTo = Math.clamp(scrollData.scrollTo+offsetY,0,scrollData.scrollTop);
@@ -154,6 +155,9 @@ import { swiper } from 'vue-awesome-swiper';
         }
         private scrollSeek(val:number){
             this.scrollTo = scrollData.scrollTo = val;
+        }
+        private get ScrollRawData(){
+            return scrollData;
         }
         private mounted(){
             scrollData.screenHeight = window.innerHeight;

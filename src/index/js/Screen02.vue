@@ -13,7 +13,7 @@
                         <div class="item0 ps-570">
                             <div class="size ps-110" :style="mainSize10Style"></div>
                             <div class="text ps-574" :style="mainText10Style"></div>
-                        </div>
+                        </div> 
                     </div>
                 </div>
                 <div class="type ps-105" :style="mainType1Style"></div>

@@ -8,7 +8,7 @@ import App from './App.vue';
 Math.clamp = function (value,min,max) {
     return Math.min(max,Math.max(value,min));
 };
-new Vue({
+export default new Vue({
     el:"#app",
     template: '<App/>',
     components:{
