@@ -205,7 +205,7 @@ import { swiper } from 'vue-awesome-swiper';
     overflow: hidden;
     .scroll-main{
         padding-top: 70rpx;
-        padding-bottom: 40rpx;
+        padding-bottom: 70rpx;
         .screen00{
             margin-bottom: 150rpx;
         }
