@@ -15,6 +15,9 @@
             <Screen05 :progress="subProgress[5]" :screen="subScreen[5]"/>
             <Screen06 :progress="subProgress[6]" :screen="subScreen[6]"/>
             <Screen07 :progress="subProgress[7]" :screen="subScreen[7]"/>
+            <Screen08 :progress="subProgress[8]" :screen="subScreen[8]"/>
+            <Screen09 :progress="subProgress[9]" :screen="subScreen[9]"/>
+            <Screen10 :progress="subProgress[10]" :screen="subScreen[10]"/>
         </div>
     </div>
 </template>
@@ -30,6 +33,9 @@
     import Screen05 from './screen05.vue';
     import Screen06 from './screen06.vue';
     import Screen07 from './screen07.vue';
+    import Screen08 from './screen08.vue';
+    import Screen09 from './screen09.vue';
+    import Screen10 from './screen10.vue';
 import { swiper } from 'vue-awesome-swiper';
     interface tweenObj{
         [key:string]:{
@@ -60,7 +66,7 @@ import { swiper } from 'vue-awesome-swiper';
     const requestAnimationFrame = window.requestAnimationFrame||window.webkitRequestAnimationFrame;
     const cancelAnimationFrame = window.cancelAnimationFrame||window.webkitCancelAnimationFrame;
     @Component({components:{
-        Screen00,Screen01,Screen02,Screen03,Screen04,Screen05,Screen06,Screen07,
+        Screen00,Screen01,Screen02,Screen03,Screen04,Screen05,Screen06,Screen07,Screen08,Screen09,Screen10,
     }}) 
     export default class F2eScroll extends Vue {
         private scrollTo:number=0;
@@ -209,6 +215,15 @@ import { swiper } from 'vue-awesome-swiper';
             margin-bottom: 150rpx;
         }
         .screen06{
+            margin-bottom: 100rpx;
+        }
+        .screen07{
+            margin-bottom: 100rpx;
+        }
+        .screen08{
+            margin-bottom: 100rpx;
+        }
+        .screen09{
             margin-bottom: 100rpx;
         }
     }
