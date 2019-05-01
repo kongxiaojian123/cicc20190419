@@ -1,7 +1,7 @@
 <template>
     <div class="scroll">
         <div class="scroll-main" ref="scroll"
-            @touchstart.stop.prevent="scrollEvent($event,true)"
+            @touchstart="scrollEvent($event,true)"
             @touchmove.stop.prevent="scrollEvent"
             :style="{
                 transform:`translateY(${-scrollTo}px)`
