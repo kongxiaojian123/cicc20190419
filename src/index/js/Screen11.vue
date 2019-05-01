@@ -39,9 +39,8 @@
         height:1306rpx;
         .ps-236{
             position:absolute;
-            left:44.0625%;
+            left: 0;
             top:9.915773%;
-            margin-left:-282rpx;
             margin-top:-129.5rpx;
             width:564rpx;
             height:259rpx;
@@ -53,7 +52,7 @@
             }
             .ps-43{
                 position:absolute;
-                left:50%;
+                left: 0;
                 top:69.305019%;
                 background:url("../assets/text.ps-43.png") no-repeat center;
             }
