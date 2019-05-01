@@ -21,7 +21,7 @@
             <Screen11 :progress="subProgress[11]" :screen="subScreen[11]"/>
             <Screen12 :progress="subProgress[12]" :screen="subScreen[12]"/>
             <Screen13 :progress="subProgress[13]" :screen="subScreen[13]"/>
-            <Screen14 :progress="subProgress[14]" :screen="subScreen[14]"/>
+            <Screen14 :progress="subProgress[14]" :screen="subScreen[14]" @scrollTo="scrollSeek"/>
         </div>
     </div>
 </template>
@@ -204,8 +204,8 @@ import { swiper } from 'vue-awesome-swiper';
     width: 100%;height: 100%;
     overflow: hidden;
     .scroll-main{
-        padding-top: 70rpx;
-        padding-bottom: 70rpx;
+        padding-top: 60rpx;
+        padding-bottom: 60rpx;
         .screen00{
             margin-bottom: 150rpx;
         }

@@ -1,6 +1,6 @@
 <template>
     <div class="screen14 ps-271">
-        <div class="btn ps-189"></div>
+        <div class="btn ps-189" @click="$emit('scrollTo',0)"></div>
         <div class="main ps-187">
             <div class="bg2 ps-275"></div>
             <div class="bg1 ps-273"></div>
