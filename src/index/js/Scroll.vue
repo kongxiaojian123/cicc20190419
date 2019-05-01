@@ -18,6 +18,10 @@
             <Screen08 :progress="subProgress[8]" :screen="subScreen[8]"/>
             <Screen09 :progress="subProgress[9]" :screen="subScreen[9]"/>
             <Screen10 :progress="subProgress[10]" :screen="subScreen[10]"/>
+            <Screen11 :progress="subProgress[11]" :screen="subScreen[11]"/>
+            <Screen12 :progress="subProgress[12]" :screen="subScreen[12]"/>
+            <Screen13 :progress="subProgress[13]" :screen="subScreen[13]"/>
+            <Screen14 :progress="subProgress[14]" :screen="subScreen[14]"/>
         </div>
     </div>
 </template>
@@ -36,6 +40,10 @@
     import Screen08 from './screen08.vue';
     import Screen09 from './screen09.vue';
     import Screen10 from './screen10.vue';
+    import Screen11 from './screen11.vue';
+    import Screen12 from './screen12.vue';
+    import Screen13 from './screen13.vue';
+    import Screen14 from './screen14.vue';
 import { swiper } from 'vue-awesome-swiper';
     interface tweenObj{
         [key:string]:{
@@ -66,7 +74,8 @@ import { swiper } from 'vue-awesome-swiper';
     const requestAnimationFrame = window.requestAnimationFrame||window.webkitRequestAnimationFrame;
     const cancelAnimationFrame = window.cancelAnimationFrame||window.webkitCancelAnimationFrame;
     @Component({components:{
-        Screen00,Screen01,Screen02,Screen03,Screen04,Screen05,Screen06,Screen07,Screen08,Screen09,Screen10,
+        Screen00,Screen01,Screen02,Screen03,Screen04,Screen05,Screen06,Screen07,
+        Screen08,Screen09,Screen10,Screen11,Screen12,Screen13,Screen14,
     }}) 
     export default class F2eScroll extends Vue {
         private scrollTo:number=0;
@@ -196,6 +205,7 @@ import { swiper } from 'vue-awesome-swiper';
     overflow: hidden;
     .scroll-main{
         padding-top: 70rpx;
+        padding-bottom: 40rpx;
         .screen00{
             margin-bottom: 150rpx;
         }
@@ -223,7 +233,7 @@ import { swiper } from 'vue-awesome-swiper';
         .screen08{
             margin-bottom: 100rpx;
         }
-        .screen09{
+        .screen09,.screen10,.screen11,.screen12,.screen13{
             margin-bottom: 100rpx;
         }
     }
