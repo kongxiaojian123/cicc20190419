@@ -1,15 +1,15 @@
 <template>
     <div class="screen10 ps-675">
         <div class="main ps-717">
-            <div class="bg ps-719"></div>
-            <div class="text text7 ps-728"></div>
-            <div class="text text6 ps-727"></div>
-            <div class="text text5 ps-726"></div>
-            <div class="text text4 ps-725"></div>
-            <div class="text text3 ps-724"></div>
-            <div class="text text2 ps-723"></div>
-            <div class="text text1 ps-722"></div>
-            <div class="text text0 ps-721"></div>
+            <div class="bg ps-719" :style="mainBgStyle"></div>
+            <div class="text text7 ps-728" :style="mainText7Style"></div>
+            <div class="text text6 ps-727" :style="mainText6Style"></div>
+            <div class="text text5 ps-726" :style="mainText5Style"></div>
+            <div class="text text4 ps-725" :style="mainText4Style"></div>
+            <div class="text text3 ps-724" :style="mainText3Style"></div>
+            <div class="text text2 ps-723" :style="mainText2Style"></div>
+            <div class="text text1 ps-722" :style="mainText1Style"></div>
+            <div class="text text0 ps-721" :style="mainText0Style"></div>
         </div>
         <div class="title ps-713">
             <div class="bg ps-4" :style="titleBgStyle"></div>
@@ -75,6 +75,29 @@
                         easing: 'easeBackOut'
                     }
                 });
+                this.mainBgStyle = this.$parent.tweenCss({
+                    translateY: {
+                        fromTo: [-200, 200],
+                        range: [0.22, 1.6-.22],
+                        progress: val,
+                    }
+                });
+                for(let i = 0;i<8;i++){
+                    this[`mainText${i}Style`] = this.$parent.tweenCss({
+                        opacity: {
+                            fromTo: [0, 1],
+                            range: [0.3+i*.094, .1 * this.screen],
+                            progress: val,
+                        },
+                        translateX: {
+                            fromTo: [100*(i%2?1:-1), 0],
+                            range: [0.3+i*.094, .2 * this.screen],
+                            progress: val,
+                            easing: 'easeBackOut'
+                        },
+                    });
+                }
+
             }
         },
         data(){
@@ -82,6 +105,15 @@
                 titleBgStyle:null,
                 titleTextStyle:null,
                 titleNumStyle:null,
+                mainBgStyle:null,
+                mainText7Style:null,
+                mainText6Style:null,
+                mainText5Style:null,
+                mainText4Style:null,
+                mainText3Style:null,
+                mainText2Style:null,
+                mainText1Style:null,
+                mainText0Style:null,
             }
         },
         computed:{
@@ -134,6 +166,7 @@
             margin-top:-718.5rpx;
             width:640rpx;
             height:1437rpx;
+            overflow: hidden;
             .ps-721{
                 position:absolute;
                 left:49.921875%;
@@ -188,7 +221,7 @@
                 top:0;
                 width:100%;
                 height:100%;
-                background:url("../assets/bg.ps-715.png") no-repeat center;
+                background:url("../assets/bg.ps-715.jpg") no-repeat center;
                 background-size:cover;
             }
         }
