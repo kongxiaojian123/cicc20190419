@@ -19,6 +19,7 @@
                     <div class="flag ps-237" :style="type0Flag0Style"></div>
                 </div>
                 <div class="title ps-154" :style="main0titleStyle"></div>
+                <span class="bg" :style="main0bgStyle"></span>
             </div>
             <div class="type1 ps-148">
                 <div class="data1 ps-184">
@@ -152,14 +153,21 @@ import Pie from './lib/pie.ts';
                 this.main0titleStyle = this.$parent.tweenCss({
                     opacity:{
                         fromTo:[0,1],
-                        range:[0.8,.05*this.screen], 
+                        range:[0.8,.05*this.screen],
                         progress:val,
                     },
                     translateX:{
                         fromTo:[-50,0],
-                        range:[0.8,.1*this.screen], 
+                        range:[0.8,.1*this.screen],
                         progress:val,
                         easing:'easeBackOut'
+                    }
+                });
+                this.main0bgStyle = this.$parent.tweenCss({
+                    translateY:{
+                        fromTo:[-50,50],
+                        range:[0.8,1.4*this.screen],
+                        progress:val,
                     }
                 });
                 this.main1titleStyle = this.$parent.tweenCss({
@@ -357,6 +365,7 @@ import Pie from './lib/pie.ts';
                 summary1Style:null,
                 main1titleStyle:null,
                 main0titleStyle:null,
+                main0bgStyle:null,
                 data0Desc0Stype:null,
                 data0Desc1Stype:null,
                 data0Desc2Stype:null,
@@ -657,6 +666,13 @@ import Pie from './lib/pie.ts';
                 left:50%;
                 top:86.550375%;
                 background:url("../assets/bg.ps-8.png") no-repeat center;
+                background-image: none;
+                .bg{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background:url("../assets/bg.ps-8.png") no-repeat center;
+                }
                 .ps-154{
                     position:absolute;
                     left:25.46875%;
