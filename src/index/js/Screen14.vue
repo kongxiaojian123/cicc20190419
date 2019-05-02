@@ -36,12 +36,12 @@
                     this[`text${i}Style`] = this.$parent.tweenCss({
                         opacity: {
                             fromTo: [0, 1],
-                            range: [0.33+i*.09, .1*this.screen],
+                            range: [0.4+i*.09, .1*this.screen],
                             progress: val,
                         },
                         scale: {
                             fromTo: [1.3, 1],
-                            range: [0.33+i*.09, .2*this.screen],
+                            range: [0.4+i*.09, .2*this.screen],
                             progress: val,
                             easing: 'easeBackOut'
                         },
