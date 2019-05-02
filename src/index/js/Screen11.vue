@@ -1,12 +1,12 @@
 <template>
     <div class="screen11 ps-234">
         <div class="main ps-240">
-            <div class="bg ps-242"></div>
-            <div class="text2 ps-170"></div>
-            <div class="text1 ps-167"></div>
-            <div class="chart1 ps-244"></div>
-            <div class="chart0 ps-88"></div>
-            <div class="text0 ps-55"></div>
+            <div class="bg ps-242" :style="mainBgStyle"></div>
+            <div class="text2 ps-170" :style="mainText2Style"></div>
+            <div class="text1 ps-167" :style="mainText1Style"></div>
+            <div class="chart1 ps-244" :style="mainChart1Style"></div>
+            <div class="chart0 ps-88" :style="mainChart0Style"></div>
+            <div class="text0 ps-55" :style="mainText0Style"></div>
         </div>
         <div class="title ps-236">
             <div class="bg ps-108" :style="titleBgStyle"></div>
@@ -67,6 +67,84 @@
                         easing: 'easeBounceOut'
                     },
                 });
+                {
+                    const posX = this.$parent.tween({
+                            backgroundPosition:{
+                                fromTo:[0,-100],
+                                range:[0.32,1.7*this.screen],
+                                progress:val,
+                            }
+                        }).backgroundPosition;
+                    this.mainBgStyle={
+                        transform:`translateY(${(-posX-80)/100}rem)`,
+                        backgroundPosition:`${posX/100}rem center`,
+                    }
+                }
+                this.mainText0Style = this.$parent.tweenCss({
+                    opacity: {
+                        fromTo: [0, 1],
+                        range: [0.41, .1 * this.screen],
+                        progress: val,
+                    },
+                    translateX: {
+                        fromTo: [100, 0],
+                        range: [0.41, .2 * this.screen],
+                        progress: val,
+                        easing: 'easeBackOut'
+                    },
+                });
+                this.mainText1Style = this.$parent.tweenCss({
+                    opacity: {
+                        fromTo: [0, 1],
+                        range: [0.83, .1 * this.screen],
+                        progress: val,
+                    },
+                    translateX: {
+                        fromTo: [100, 0],
+                        range: [0.83, .2 * this.screen],
+                        progress: val,
+                        easing: 'easeBackOut'
+                    },
+                });
+                this.mainText2Style = this.$parent.tweenCss({
+                    opacity: {
+                        fromTo: [0, 1],
+                        range: [0.92, .1 * this.screen],
+                        progress: val,
+                    },
+                    translateX: {
+                        fromTo: [100, 0],
+                        range: [0.92, .2 * this.screen],
+                        progress: val,
+                        easing: 'easeBackOut'
+                    },
+                });
+                this.mainChart0Style = this.$parent.tweenCss({
+                    opacity: {
+                        fromTo: [0, 1],
+                        range: [0.7, .1 * this.screen],
+                        progress: val,
+                    },
+                    scale: {
+                        fromTo: [.3, 1],
+                        range: [0.7, .2 * this.screen],
+                        progress: val,
+                        easing: 'easeBackOut'
+                    },
+                });
+                this.mainChart1Style = this.$parent.tweenCss({
+                    opacity: {
+                        fromTo: [0, 1],
+                        range: [0.6, .1 * this.screen],
+                        progress: val,
+                    },
+                    scale: {
+                        fromTo: [.3, 1],
+                        range: [0.6, .2 * this.screen],
+                        progress: val,
+                        easing: 'easeBackOut'
+                    },
+                });
             }
         },
         data(){
@@ -74,6 +152,12 @@
                 titleBgStyle:null,
                 titleTextStyle:null,
                 titleNumStyle:null,
+                mainBgStyle:null,
+                mainText0Style:null,
+                mainText1Style:null,
+                mainText2Style:null,
+                mainChart0Style:null,
+                mainChart1Style:null,
             }
         },
         computed:{
@@ -161,7 +245,9 @@
                 top:0;
                 width:100%;
                 height:100%;
-                background:url("../assets/bg.ps-106.png") no-repeat center;
+                -webkit-mask: url("../assets/bg.ps-106.png") no-repeat center;
+                -webkit-mask-size: contain;
+                background:url("../assets/bg.ps-106.jpg") no-repeat right center;
                 background-size:cover;
             }
         }
