@@ -419,10 +419,6 @@ import Pie from './lib/pie.ts';
         mounted(){
             pie0=new Pie(this.$refs.canvas0);
             pie1=new Pie(this.$refs.canvas1);
-            pie1.render({
-                progress:1,
-                data:this.pieData1
-            });
         },
         computed:{
         },

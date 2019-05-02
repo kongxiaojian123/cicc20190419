@@ -1,20 +1,22 @@
 <template>
     <div class="screen08 ps-213">
         <div class="main ps-219">
-            <div class="company ps-229">
-                <div class="main ps-233">
-                    <div class="type4 ps-181"></div>
-                    <div class="type3 ps-237"></div>
-                    <div class="type2 ps-177"></div>
-                    <div class="type1 ps-175"></div>
-                    <div class="type0 ps-235"></div>
+            <div class="data ps-221">
+                <span class="bg" :style="dataBgStyle"></span>
+                <div class="title ps-223" :style="dataTitleStype"></div>
+                <div class="chart-main ps-227">
+                    <canvas class="canvas pie ps-23" ref="canvas" :style="dataPieStype"></canvas>
+                    <div class="text ps-36" :style="dataTextStype"></div>
                 </div>
             </div>
-            <div class="data ps-221">
-                <div class="title ps-223"></div>
-                <div class="chart-main ps-227">
-                    <div class="chart ps-23"></div>
-                    <div class="text ps-36"></div>
+            <div class="company ps-229">
+                <span class="bg" :style="companyBgStyle"></span>
+                <div class="main ps-233">
+                    <div class="type4 ps-181" :style="companyText4Style"></div>
+                    <div class="type3 ps-237" :style="companyText3Style"></div>
+                    <div class="type2 ps-177" :style="companyText2Style"></div>
+                    <div class="type1 ps-175" :style="companyText1Style"></div>
+                    <div class="type0 ps-235" :style="companyText0Style"></div>
                 </div>
             </div>
         </div>
@@ -84,6 +86,135 @@
                         easing: 'easeBackOut'
                     }
                 });
+                this.dataBgStyle = this.$parent.tweenCss({
+                    translateY: {
+                        fromTo: [80, -80],
+                        range: [0, 1.6 * this.screen],
+                        progress: val,
+                    },
+                });
+                pie.render({
+                    progress:this.$parent.tween({
+                        progress:{
+                            fromTo:[0,1],
+                            range:[.29,.1*this.screen],
+                            progress:val,
+                        },
+                    }).progress,
+                    data:this.pieData
+                });
+                this.dataPieStype=this.$parent.tweenCss({
+                    opacity:{
+                        fromTo:[0,1],
+                        range:[.29,.05*this.screen],
+                        progress:val,
+                    },
+                    scale:{
+                        fromTo:[.1,1],
+                        range:[.29,.1*this.screen],
+                        progress:val,
+                        easing:'easeBackOut'
+                    },
+                });
+                this.dataTextStype=this.$parent.tweenCss({
+                    opacity:{
+                        fromTo:[0,1],
+                        range:[.31,.05*this.screen],
+                        progress:val,
+                    },
+                    scale:{
+                        fromTo:[1.2,1],
+                        range:[.31,.1*this.screen],
+                        progress:val,
+                        easing:'easeBackOut'
+                    },
+                });
+                this.dataTitleStype=this.$parent.tweenCss({
+                    opacity:{
+                        fromTo:[0,1],
+                        range:[.23,.1*this.screen],
+                        progress:val,
+                    },
+                    scale:{
+                        fromTo:[.3,1],
+                        range:[.23,.2*this.screen],
+                        progress:val,
+                        easing:'easeBackOut'
+                    },
+                });
+
+                this.companyBgStyle=this.$parent.tweenCss({
+                    translateY:{
+                        fromTo:[-300,800],
+                        range:[.35,1.4],
+                        progress:val,
+                    },
+                });
+                this.companyText0Style=this.$parent.tweenCss({
+                    opacity:{
+                        fromTo:[0,1],
+                        range:[.47,.1*this.screen],
+                        progress:val,
+                    },
+                    scale:{
+                        fromTo:[1.3,1],
+                        range:[.47,.2*this.screen],
+                        progress:val,
+                        easing:'easeBackOut'
+                    },
+                });
+                this.companyText1Style=this.$parent.tweenCss({
+                    opacity:{
+                        fromTo:[0,1],
+                        range:[.56,.1*this.screen],
+                        progress:val,
+                    },
+                    scale:{
+                        fromTo:[1.3,1],
+                        range:[.56,.2*this.screen],
+                        progress:val,
+                        easing:'easeBackOut'
+                    },
+                });
+                this.companyText2Style=this.$parent.tweenCss({
+                    opacity:{
+                        fromTo:[0,1],
+                        range:[.69,.1*this.screen],
+                        progress:val,
+                    },
+                    scale:{
+                        fromTo:[1.3,1],
+                        range:[.69,.2*this.screen],
+                        progress:val,
+                        easing:'easeBackOut'
+                    },
+                });
+                this.companyText3Style=this.$parent.tweenCss({
+                    opacity:{
+                        fromTo:[0,1],
+                        range:[.82,.1*this.screen],
+                        progress:val,
+                    },
+                    scale:{
+                        fromTo:[1.3,1],
+                        range:[.82,.2*this.screen],
+                        progress:val,
+                        easing:'easeBackOut'
+                    },
+                });
+                this.companyText4Style=this.$parent.tweenCss({
+                    opacity:{
+                        fromTo:[0,1],
+                        range:[.95,.1*this.screen],
+                        progress:val,
+                    },
+                    scale:{
+                        fromTo:[1.3,1],
+                        range:[.95,.2*this.screen],
+                        progress:val,
+                        easing:'easeBackOut'
+                    },
+                });
             }
         },
         data(){
@@ -91,9 +222,31 @@
                 titleBgStyle:null,
                 titleTextStyle:null,
                 titleNumStyle:null,
+
+                dataBgStyle:null,
+                dataPieStype:null,
+                dataTextStype:null,
+                dataTitleStype:null,
+                companyBgStyle:null,
+                companyText0Style:null,
+                companyText1Style:null,
+                companyText2Style:null,
+                companyText3Style:null,
+                companyText4Style:null,
+                pieData:[
+                    {range:[0,0.25],color:'#860c10',},
+                    {range:[0.25,0.12],color:'#d58d53',},
+                    {range:[0.37,0.07],color:'#0f4b80',},
+                    {range:[0.44,0.02],color:'#a3805c',},
+                    {range:[0.46,0.03],color:'#c6c9d1',},
+                    {range:[0.49,0.47],color:'#c6a572',},
+                    {range:[0.96,0.03],color:'#d9bc90',},
+                    {range:[0.99,0.01],color:'#a81e23',},
+                ],
             }
         },
-        computed:{
+        mounted(){
+            pie=new Pie(this.$refs.canvas);
         },
         methods:{
             
@@ -148,6 +301,13 @@
                 left:50%;
                 top:12.60535%;
                 background:url("../assets/bg.ps-225.png") no-repeat center;
+                background-image: none;
+                span{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background:url("../assets/bg.ps-225.png") no-repeat center;
+                }
                 .ps-227{
                     position:absolute;
                     left:48.984375%;
@@ -166,10 +326,8 @@
                         background-size:cover;
                     }
                     .ps-23{
-                        position:absolute;
                         left:51.192661%;
                         top:51.940639%;
-                        background:url("../assets/chart.ps-23.png") no-repeat center;
                     }
                 }
                 .ps-223{
@@ -181,14 +339,30 @@
             }
             .ps-229{
                 position:absolute;
-                left:50%;
+                left: 0;
                 top:63.118358%;
-                background:url("../assets/bg.ps-231.png") no-repeat center;
+                width: 100%;
+                height: 2013rpx;
+                margin-top: -1006rpx;
+                overflow: hidden;
+                .bg{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background: url("../assets/bg.ps-231.jpg") no-repeat center;
+                }
                 .ps-233{
                     position:absolute;
                     left:50%;
                     top:50.496771%;
-                    background:url("../assets/main-bg.ps-132.png") no-repeat center;
+                    width: 552rpx;
+                    height: 1775rpx;
+                    margin-left: -552/2rpx;
+                    margin-top: -1775/2rpx;
+                    background: rgba(255,255,255,.8);
+                    > div{
+                        transform-origin: center -20%;
+                    }
                     .ps-235{
                         position:absolute;
                         left:50%;
