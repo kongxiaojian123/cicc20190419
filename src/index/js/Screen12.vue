@@ -1,11 +1,11 @@
 <template>
     <div class="screen12 ps-249">
         <div class="main ps-176">
-            <div class="circle1 ps-253"></div>
-            <div class="circle0 ps-251"></div>
-            <div class="text2 ps-17"></div>
-            <div class="text1 ps-255"></div>
-            <div class="text0 ps-174"></div>
+            <div class="circle1 ps-253" :style="circle1Style"></div>
+            <div class="circle0 ps-251" :style="circle0Style"></div>
+            <div class="text2 ps-17" :style="text0Style"></div>
+            <div class="text1 ps-255" :style="text1Style"></div>
+            <div class="text0 ps-174" :style="text2Style"></div>
         </div>
         <div class="title ps-172">
             <div class="bg ps-246" :style="titleBgStyle"></div>
@@ -71,6 +71,59 @@
                         easing: 'easeBackOut'
                     }
                 });
+                this.circle1Style = this.circle0Style = this.$parent.tweenCss({
+                    opacity: {
+                        fromTo: [0, 1],
+                        range: [0.68, .05 * this.screen],
+                        progress: val,
+                    },
+                    rotateZ: {
+                        fromTo: [45, 0],
+                        range: [0.68, .2 * this.screen],
+                        progress: val,
+                        easing: 'easeBackOut'
+                    },
+                });
+                this.text0Style = this.$parent.tweenCss({
+                    opacity: {
+                        fromTo: [0, 1],
+                        range: [0.68, .05 * this.screen],
+                        progress: val,
+                    },
+                    scale: {
+                        fromTo: [1.3, 1],
+                        range: [0.68, .2 * this.screen],
+                        progress: val,
+                        easing: 'easeBackOut'
+                    },
+                });
+                this.text1Style = this.$parent.tweenCss({
+                    opacity: {
+                        fromTo: [0, 1],
+                        range: [0.77, .05 * this.screen],
+                        progress: val,
+                    },
+                    scale: {
+                        fromTo: [1.3, 1],
+                        range: [0.77, .2 * this.screen],
+                        progress: val,
+                        easing: 'easeBackOut'
+                    },
+                });
+                this.text2Style = this.$parent.tweenCss({
+                    opacity: {
+                        fromTo: [0, 1],
+                        range: [0.86, .05 * this.screen],
+                        progress: val,
+                    },
+                    scale: {
+                        fromTo: [1.3, 1],
+                        range: [0.86, .2 * this.screen],
+                        progress: val,
+                        easing: 'easeBackOut'
+                    },
+                });
+
             }
         },
         data(){
@@ -78,6 +131,11 @@
                 titleBgStyle:null,
                 titleTextStyle:null,
                 titleNumStyle:null,
+                circle0Style:null,
+                circle1Style:null,
+                text0Style:null,
+                text1Style:null,
+                text2Style:null,
             }
         },
         computed:{
@@ -154,12 +212,14 @@
                 left:50%;
                 top:31.682578%;
                 background:url("../assets/circle0.ps-251.png") no-repeat center;
+                transform-origin: 85% 15%;
             }
             .ps-253{
                 position:absolute;
                 left:50%;
                 top:68.257757%;
                 background:url("../assets/circle1.ps-253.png") no-repeat center;
+                transform-origin: 15% 85%;
             }
         }
     }

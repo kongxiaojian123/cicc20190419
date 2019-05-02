@@ -1,13 +1,13 @@
 <template>
     <div class="screen13 ps-257">
         <div class="main ps-265">
-            <div class="bg1 ps-104"></div>
+            <div class="bg1 ps-104" :style="bgStyle"></div>
             <div class="bg0 ps-263"></div>
-            <div class="text text4 ps-185"></div>
-            <div class="text text3 ps-267"></div>
-            <div class="text text2 ps-268"></div>
-            <div class="text text1 ps-269"></div>
-            <div class="text text0 ps-270"></div>
+            <div class="text text4 ps-185" :style="text4Style"></div>
+            <div class="text text3 ps-267" :style="text3Style"></div>
+            <div class="text text2 ps-268" :style="text2Style"></div>
+            <div class="text text1 ps-269" :style="text1Style"></div>
+            <div class="text text0 ps-270" :style="text0Style"></div>
         </div>
         <div class="title ps-178">
             <div class="bg ps-261" :style="titleBgStyle"></div>
@@ -73,6 +73,33 @@
                         easing: 'easeBackOut'
                     }
                 });
+                for(let i = 0;i<5;i++){
+                    this[`text${i}Style`] = this.$parent.tweenCss({
+                        opacity: {
+                            fromTo: [0, 1],
+                            range: [0.54+i*.09, .1 * this.screen],
+                            progress: val,
+                        },
+                        translateX: {
+                            fromTo: [100, 0],
+                            range: [0.54+i*.09, .2 * this.screen],
+                            progress: val,
+                            easing: 'easeBackOut'
+                        },
+                    });
+                }
+                this.bgStyle = this.$parent.tweenCss({
+                    translateY: {
+                        fromTo: [100, -100],
+                        range: [0.5, 1.6 * this.screen],
+                        progress: val,
+                    },
+                    translateX: {
+                        fromTo: [50, 0],
+                        range: [0.5, 1.6 * this.screen],
+                        progress: val,
+                    }
+                });
             }
         },
         data(){
@@ -80,6 +107,12 @@
                 titleBgStyle:null,
                 titleTextStyle:null,
                 titleNumStyle:null,
+                text0Style:null,
+                text1Style:null,
+                text2Style:null,
+                text3Style:null,
+                text4Style:null,
+                bgStyle:null,
             }
         },
         computed:{
@@ -134,7 +167,7 @@
             height:873rpx;
             .ps-270{
                 position:absolute;
-                left:60.15625%;
+                left:64.15625%;
                 top:33.676976%;
                 background:url("../assets/text.text0.ps-270.png") no-repeat center;
             }
@@ -152,13 +185,13 @@
             }
             .ps-267{
                 position:absolute;
-                left:39.84375%;
+                left:36.84375%;
                 top:71.363116%;
                 background:url("../assets/text.text3.ps-267.png") no-repeat center;
             }
             .ps-185{
                 position:absolute;
-                left:39.84375%;
+                left:26.84375%;
                 top:83.963345%;
                 background:url("../assets/text.text4.ps-185.png") no-repeat center;
             }
