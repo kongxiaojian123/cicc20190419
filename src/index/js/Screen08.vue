@@ -19,17 +19,78 @@
             </div>
         </div>
         <div class="title ps-217">
-            <div class="bg1 ps-134"></div>
-            <div class="text ps-35"></div>
-            <div class="num_08 ps-215"></div>
+            <div class="bg1 ps-134" :style="titleBgStyle"></div>
+            <div class="text ps-35" :style="titleTextStyle"></div>
+            <div class="num_08 ps-215" :style="titleNumStyle"></div>
         </div>
         </div>
 </template>
 <script >
+    import Pie from './lib/pie.ts';
+    let pie;
     export default {
+        props:['progress','screen'],
+        watch: {
+            progress(val) {
+                this.titleNumStyle = this.$parent.tweenCss({
+                    translateX: {
+                        fromTo: [-50, 50],
+                        range: [0, 1.2 * this.screen],
+                        progress: val,
+                    },
+                    translateY: {
+                        fromTo: [-100, 50],
+                        range: [0, 1.2 * this.screen],
+                        progress: val,
+                    },
+                    scale: {
+                        fromTo: [1.2, .8],
+                        range: [0, 1.2 * this.screen],
+                        progress: val,
+                    },
+                });
+                this.titleBgStyle = this.$parent.tweenCss({
+                    translateX: {
+                        fromTo: [100, -30],
+                        range: [0, 1.2 * this.screen],
+                        progress: val,
+                    },
+                    translateY: {
+                        fromTo: [-100, 30],
+                        range: [0, 1.2 * this.screen],
+                        progress: val,
+                    },
+                    rotateZ: {
+                        fromTo: [10, -10],
+                        range: [0, 1.2 * this.screen],
+                        progress: val,
+                    },
+                });
+                this.titleTextStyle = this.$parent.tweenCss({
+                    opacity: {
+                        fromTo: [0, 1],
+                        range: [0.06, .1 * this.screen],
+                        progress: val,
+                    },
+                    translateY: {
+                        fromTo: [-30, 30],
+                        range: [0, 1.2 * this.screen],
+                        progress: val,
+                    },
+                    scale: {
+                        fromTo: [.3, 1],
+                        range: [0.06, .2 * this.screen],
+                        progress: val,
+                        easing: 'easeBackOut'
+                    }
+                });
+            }
+        },
         data(){
             return{
-                
+                titleBgStyle:null,
+                titleTextStyle:null,
+                titleNumStyle:null,
             }
         },
         computed:{

@@ -9,17 +9,71 @@
             <div class="text0 ps-55"></div>
         </div>
         <div class="title ps-236">
-            <div class="bg ps-108"></div>
-            <div class="text ps-43"></div>
-            <div class="num_11 ps-238"></div>
+            <div class="bg ps-108" :style="titleBgStyle"></div>
+            <div class="text ps-43" :style="titleTextStyle"></div>
+            <div class="num_11 ps-238" :style="titleNumStyle"></div>
         </div>
         </div>
 </template>
 <script >
     export default {
+        props:['progress','screen'],
+        watch: {
+            progress(val) {
+                this.titleNumStyle = this.$parent.tweenCss({
+                    translateX: {
+                        fromTo: [-50, 50],
+                        range: [0, 1.2 * this.screen],
+                        progress: val,
+                    },
+                    translateY: {
+                        fromTo: [50, -100],
+                        range: [0, 1.2 * this.screen],
+                        progress: val,
+                    },
+                    scale: {
+                        fromTo: [1.2, .8],
+                        range: [0, 1.2 * this.screen],
+                        progress: val,
+                    },
+                });
+                this.titleBgStyle = this.$parent.tweenCss({
+                    translateX: {
+                        fromTo: [100, -30],
+                        range: [0, 1.2 * this.screen],
+                        progress: val,
+                    },
+                    translateY: {
+                        fromTo: [-100, 30],
+                        range: [0, 1.2 * this.screen],
+                        progress: val,
+                    },
+                    rotateZ: {
+                        fromTo: [10, -10],
+                        range: [0, 1.2 * this.screen],
+                        progress: val,
+                    },
+                });
+                this.titleTextStyle = this.$parent.tweenCss({
+                    opacity: {
+                        fromTo: [0, 1],
+                        range: [0.15, .1 * this.screen],
+                        progress: val,
+                    },
+                    translateX: {
+                        fromTo: [-100, 0],
+                        range: [0.15, .2* this.screen],
+                        progress: val,
+                        easing: 'easeBounceOut'
+                    },
+                });
+            }
+        },
         data(){
             return{
-                
+                titleBgStyle:null,
+                titleTextStyle:null,
+                titleNumStyle:null,
             }
         },
         computed:{
