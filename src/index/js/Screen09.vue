@@ -2,32 +2,32 @@
     <div class="screen09 ps-673">
         <div class="main ps-681">
             <div class="type1 ps-515">
-                <div class="bg1 ps-703"></div>
-                <div class="bg0 ps-702"></div>
-                <div class="logo logo6 ps-710"></div>
-                <div class="logo logo5 ps-709"></div>
-                <div class="logo logo4 ps-708"></div>
-                <div class="logo logo3 ps-707"></div>
-                <div class="logo logo2 ps-706"></div>
-                <div class="logo logo1 ps-705"></div>
-                <div class="logo logo0 ps-704"></div>
-                <div class="type-text ps-700"></div>
+                <div class="bg1 ps-703" :style="logo19Style"></div>
+                <div class="bg0 ps-702" :style="logo11Style"></div>
+                <div class="logo logo6 ps-710" :style="logo18Style"></div>
+                <div class="logo logo5 ps-709" :style="logo17Style"></div>
+                <div class="logo logo4 ps-708" :style="logo16Style"></div>
+                <div class="logo logo3 ps-707" :style="logo15Style"></div>
+                <div class="logo logo2 ps-706" :style="logo14Style"></div>
+                <div class="logo logo1 ps-705" :style="logo13Style"></div>
+                <div class="logo logo0 ps-704" :style="logo12Style"></div>
+                <div class="type-text ps-700" :style="logo10Style"></div>
             </div>
             <div class="type0 ps-511">
-                <div class="bg1 ps-699"></div>
-                <div class="bg0 ps-698"></div>
-                <div class="logo logo4 ps-697"></div>
-                <div class="logo logo3 ps-696"></div>
-                <div class="logo logo2 ps-695"></div>
-                <div class="logo logo1 ps-694"></div>
-                <div class="logo logo0 ps-693"></div>
-                <div class="type-text ps-691"></div>
+                <div class="bg1 ps-699" :style="logo07Style"></div>
+                <div class="bg0 ps-698" :style="logo01Style"></div>
+                <div class="logo logo4 ps-697" :style="logo06Style"></div>
+                <div class="logo logo3 ps-696" :style="logo05Style"></div>
+                <div class="logo logo2 ps-695" :style="logo04Style"></div>
+                <div class="logo logo1 ps-694" :style="logo03Style"></div>
+                <div class="logo logo0 ps-693" :style="logo02Style"></div>
+                <div class="type-text ps-691" :style="logo00Style"></div>
             </div>
             <div class="text-main ps-683">
-                <div class="text3 ps-690"></div>
-                <div class="text2 ps-689"></div>
-                <div class="text1 ps-688"></div>
-                <div class="text0 ps-687"></div>
+                <div class="text3 ps-690" :style="text3Style"></div>
+                <div class="text2 ps-689" :style="text2Style"></div>
+                <div class="text1 ps-688" :style="text1Style"></div>
+                <div class="text0 ps-687" :style="text0Style"></div>
             </div>
         </div>
         <div class="title ps-679">
@@ -89,6 +89,88 @@
                         easing: 'easeBackOut'
                     },
                 });
+                this.text0Style = this.$parent.tweenCss({
+                    opacity: {
+                        fromTo: [0, 1],
+                        range: [0.3, .1 * this.screen],
+                        progress: val,
+                    },
+                    translateX: {
+                        fromTo: [60, 0],
+                        range: [0.3, .2 * this.screen],
+                        progress: val,
+                        easing: 'easeBackOut'
+                    },
+                });
+                this.text1Style = this.$parent.tweenCss({
+                    opacity: {
+                        fromTo: [0, 1],
+                        range: [0.32, .1 * this.screen],
+                        progress: val,
+                    },
+                    translateX: {
+                        fromTo: [60, 0],
+                        range: [0.32, .2 * this.screen],
+                        progress: val,
+                        easing: 'easeBackOut'
+                    },
+                });
+                this.text2Style = this.$parent.tweenCss({
+                    opacity: {
+                        fromTo: [0, 1],
+                        range: [0.34, .1 * this.screen],
+                        progress: val,
+                    },
+                    translateX: {
+                        fromTo: [60, 0],
+                        range: [0.34, .2 * this.screen],
+                        progress: val,
+                        easing: 'easeBackOut'
+                    },
+                });
+                this.text3Style = this.$parent.tweenCss({
+                    opacity: {
+                        fromTo: [0, 1],
+                        range: [0.36, .1 * this.screen],
+                        progress: val,
+                    },
+                    translateX: {
+                        fromTo: [60, 0],
+                        range: [0.36, .2 * this.screen],
+                        progress: val,
+                        easing: 'easeBackOut'
+                    },
+                });
+                for(let i =0;i<8;i++){
+                    this[`logo0${i}Style`] = this.$parent.tweenCss({
+                        opacity: {
+                            fromTo: [0, 1],
+                            range: [0.45+i*.03, .1 * this.screen],
+                            progress: val,
+                        },
+                        translateX: {
+                            fromTo: [60, 0],
+                            range: [0.45+i*.03, .2 * this.screen],
+                            progress: val,
+                            easing: 'easeBackOut'
+                        },
+                    });
+                }
+                for(let i =0;i<10;i++){
+                    this[`logo1${i}Style`] = this.$parent.tweenCss({
+                        opacity: {
+                            fromTo: [0, 1],
+                            range: [0.75+i*.03, .1 * this.screen],
+                            progress: val,
+                        },
+                        translateX: {
+                            fromTo: [60, 0],
+                            range: [0.75+i*.03, .2 * this.screen],
+                            progress: val,
+                            easing: 'easeBackOut'
+                        },
+                    });
+                }
             }
         },
         data(){
@@ -96,6 +178,30 @@
                 titleBgStyle:null,
                 titleTextStyle:null,
                 titleNumStyle:null,
+                text0Style:null,
+                text1Style:null,
+                text2Style:null,
+                text3Style:null,
+
+                logo00Style:null,
+                logo01Style:null,
+                logo02Style:null,
+                logo03Style:null,
+                logo04Style:null,
+                logo05Style:null,
+                logo06Style:null,
+                logo07Style:null,
+
+                logo10Style:null,
+                logo11Style:null,
+                logo12Style:null,
+                logo13Style:null,
+                logo14Style:null,
+                logo15Style:null,
+                logo16Style:null,
+                logo17Style:null,
+                logo18Style:null,
+                logo19Style:null,
             }
         },
         computed:{
