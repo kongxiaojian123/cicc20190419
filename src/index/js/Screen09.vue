@@ -156,6 +156,7 @@
                         },
                     });
                 }
+
                 for(let i =0;i<10;i++){
                     this[`logo1${i}Style`] = this.$parent.tweenCss({
                         opacity: {
