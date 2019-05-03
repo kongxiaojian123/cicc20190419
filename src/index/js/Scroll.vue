@@ -7,21 +7,21 @@
                 transform:`translateY(${-scrollTo}px)`
             }"
         >
-            <Screen00 :progress="subProgress[0]" :screen="subScreen[0]"/>
-            <Screen01 :progress="subProgress[1]" :screen="subScreen[1]"/>
-            <Screen02 :progress="subProgress[2]" :screen="subScreen[2]"/>
-            <Screen03 :progress="subProgress[3]" :screen="subScreen[3]"/>
-            <Screen04 :progress="subProgress[4]" :screen="subScreen[4]"/>
-            <Screen05 :progress="subProgress[5]" :screen="subScreen[5]"/>
-            <Screen06 :progress="subProgress[6]" :screen="subScreen[6]"/>
-            <Screen07 :progress="subProgress[7]" :screen="subScreen[7]"/>
-            <Screen08 :progress="subProgress[8]" :screen="subScreen[8]"/>
-            <Screen09 :progress="subProgress[9]" :screen="subScreen[9]"/>
-            <Screen10 :progress="subProgress[10]" :screen="subScreen[10]"/>
-            <Screen11 :progress="subProgress[11]" :screen="subScreen[11]"/>
-            <Screen12 :progress="subProgress[12]" :screen="subScreen[12]"/>
-            <Screen13 :progress="subProgress[13]" :screen="subScreen[13]"/>
-            <Screen14 :progress="subProgress[14]" :screen="subScreen[14]" @scrollTo="scrollSeek"/>
+            <Screen00 :class="{hidden:subVisiable[0]}" :progress="subProgress[0]" :screen="subScreen[0]"/>
+            <Screen01 :class="{hidden:subVisiable[1]}" :progress="subProgress[1]" :screen="subScreen[1]"/>
+            <Screen02 :class="{hidden:subVisiable[2]}" :progress="subProgress[2]" :screen="subScreen[2]"/>
+            <Screen03 :class="{hidden:subVisiable[3]}" :progress="subProgress[3]" :screen="subScreen[3]"/>
+            <Screen04 :class="{hidden:subVisiable[4]}" :progress="subProgress[4]" :screen="subScreen[4]"/>
+            <Screen05 :class="{hidden:subVisiable[5]}" :progress="subProgress[5]" :screen="subScreen[5]"/>
+            <Screen06 :class="{hidden:subVisiable[6]}" :progress="subProgress[6]" :screen="subScreen[6]"/>
+            <Screen07 :class="{hidden:subVisiable[7]}" :progress="subProgress[7]" :screen="subScreen[7]"/>
+            <Screen08 :class="{hidden:subVisiable[8]}" :progress="subProgress[8]" :screen="subScreen[8]"/>
+            <Screen09 :class="{hidden:subVisiable[9]}" :progress="subProgress[9]" :screen="subScreen[9]"/>
+            <Screen10 :class="{hidden:subVisiable[10]}" :progress="subProgress[10]" :screen="subScreen[10]"/>
+            <Screen11 :class="{hidden:subVisiable[11]}" :progress="subProgress[11]" :screen="subScreen[11]"/>
+            <Screen12 :class="{hidden:subVisiable[12]}" :progress="subProgress[12]" :screen="subScreen[12]"/>
+            <Screen13 :class="{hidden:subVisiable[13]}" :progress="subProgress[13]" :screen="subScreen[13]"/>
+            <Screen14 :class="{hidden:subVisiable[14]}" :progress="subProgress[14]" :screen="subScreen[14]" @scrollTo="scrollSeek"/>
         </div>
     </div>
 </template>
@@ -79,22 +79,22 @@ import { swiper } from 'vue-awesome-swiper';
     }}) 
     export default class F2eScroll extends Vue {
         private scrollTo:number=0;
-        private lalala:number=1;
-        @Watch('lalala') lalalaChange(val){
-            this.scrollSeek(val);
-        }
         @Watch('scrollTo')private scrollToChange(val){
             const scrollBottom = val+scrollData.screenHeight;
-            const scrollBottom2 = scrollBottom+scrollData.screenHeight;
-            const scrollTop = val-scrollData.screenHeight;
+            const scrollBottom2 = scrollBottom+scrollData.screenHeight/2;
+            const scrollTop = val-scrollData.screenHeight/2;
             scrollItemData.forEach((item,index)=>{
                 if(scrollTop<item.bottom&&scrollBottom2>item.top) {
                     this.$set(this.subProgress, index, (scrollBottom-item.top)/item.height);
+                    this.$set(this.subVisiable, index, false);
+                }else{
+                    this.$set(this.subVisiable, index, true);
                 }
             });
         }
         private subProgress:number[]=[];
         private subScreen:number[]=[];//一屏高占相应的进度
+        private subVisiable:boolean[]=[];//一屏高占相应的进度
         private scrollEvent({touches}:TouchEvent,init:boolean=false){
             const pageY = touches[0].pageY;
             // console.log(pageY);
@@ -187,6 +187,7 @@ import { swiper } from 'vue-awesome-swiper';
                     bottom:offsetTop+height,
                 });
                 this.subProgress.push(0);
+                this.subVisiable.push(false);
                 this.subScreen.push(scrollData.screenHeight/height);
             });
             this.renderScroll();
@@ -206,6 +207,9 @@ import { swiper } from 'vue-awesome-swiper';
     .scroll-main{
         padding-top: 60rpx;
         padding-bottom: 60rpx;
+        .hidden{
+            visibility: hidden;
+        }
         .screen00{
             margin-bottom: 150rpx;
         }
