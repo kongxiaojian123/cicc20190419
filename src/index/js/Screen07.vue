@@ -479,7 +479,7 @@ import Pie from './lib/pie.ts';
             }
             .ps-143{
                 position:absolute;
-                left:29.94186%;
+                left:34.5%;
                 top:73.660714%;
                 background:url("../assets/text1.ps-143.png") no-repeat center;
             }
@@ -753,8 +753,8 @@ import Pie from './lib/pie.ts';
                         background:url("../assets/flag.png") no-repeat center;
                     }
                     .ps-19{
-                        position:absolute;
-                        left:56.948229%;
+                        position:absolute; 
+                        left:68%;
                         top:57.5%;
                         background:url("../assets/text.ps-19.png") no-repeat center;
                     }
