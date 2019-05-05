@@ -25,9 +25,18 @@
         created(){
             if(this.src&&music.src != this.src){
                 music.src = this.src;
-                if(this.playing){
-                    if(window.netease) window.netease.autoPlay(music.id);
-                }
+                const initSound=()=> {
+                    document.removeEventListener("WeixinJSBridgeReady", initSound, false);
+                    document.removeEventListener("YixinJSBridgeReady", initSound, false);
+                    document.removeEventListener("touchstart", initSound, false);
+                    if(this.playing){
+                        music.play();
+                    }
+                };
+                document.addEventListener("WeixinJSBridgeReady", initSound, false);
+                document.addEventListener("YixinJSBridgeReady", initSound, false);
+                document.addEventListener("touchstart", initSound, false);
+                
             }
         },
         methods:{
