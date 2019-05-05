@@ -62,7 +62,7 @@
                 this.titleBgStyle = this.$parent.tweenCss({
                     translateX:{
                         fromTo:[100,-45],
-                        range:[0,1*this.screen],
+                        range:[0,.8],
                         progress:val,
                     },
                     translateY:{
@@ -74,17 +74,17 @@
                 this.titleNumStyle = this.$parent.tweenCss({
                     translateX:{
                         fromTo:[-130,160],
-                        range:[0,1.2*this.screen],
+                        range:[0,.8],
                         progress:val,
                     },
                     translateY:{
                         fromTo:[-30,100],
-                        range:[0,1.2*this.screen],
+                        range:[0,.8],
                         progress:val, 
                     },
                     scale:{
                         fromTo:[1.5,1],
-                        range:[0,.6*this.screen],
+                        range:[0,.3],
                         progress:val,
                         easing:'easeQuadOut'
                     },
@@ -92,7 +92,7 @@
                 this.mainBgStyle = this.$parent.tweenCss({
                     translateY:{
                         fromTo:[0,400],
-                        range:[.3,2.3*this.screen],
+                        range:[.3,1.4],
                         progress:val, 
                     },
                 });
@@ -134,13 +134,13 @@
                     this.mainSize10Style = this.$parent.tweenCss({
                         translateX:{
                             fromTo:[-150,0],
-                            range:[.6+offset,.1*this.screen],
+                            range:[.58+offset,.1*this.screen],
                             progress:val,
                             easing:'easeQuadOut'
                         },
                         translateY:{
                             fromTo:[150,0],
-                            range:[.6+offset,.1*this.screen],
+                            range:[.58+offset,.1*this.screen],
                             progress:val,
                             easing:'easeQuadOut'
                         },
@@ -162,12 +162,12 @@
                     this.mainText10Style = this.$parent.tweenCss({
                         opacity:{
                             fromTo:[0,1],
-                            range:[.63+offset,.1*this.screen],
+                            range:[.61+offset,.1*this.screen],
                             progress:val,
                         },
                         translateY:{
                             fromTo:[30,0],
-                            range:[.63+offset,.1*this.screen],
+                            range:[.61+offset,.1*this.screen],
                             progress:val,
                         },
                     });
@@ -222,13 +222,13 @@
                     this.mainSize20Style = this.$parent.tweenCss({
                         translateX:{
                             fromTo:[-170,0],
-                            range:[.6+offset,.1*this.screen],
+                            range:[.58+offset,.1*this.screen],
                             progress:val,
                             easing:'easeQuadOut'
                         },
                         translateY:{
                             fromTo:[170,0],
-                            range:[.6+offset,.1*this.screen],
+                            range:[.58+offset,.1*this.screen],
                             progress:val,
                             easing:'easeQuadOut'
                         },
@@ -236,13 +236,13 @@
                     this.mainSize21Style = this.$parent.tweenCss({
                         translateX:{
                             fromTo:[-240,0],
-                            range:[.63+offset,.1*this.screen],
+                            range:[.61+offset,.1*this.screen],
                             progress:val,
                             easing:'easeQuadOut'
                         },
                         translateY:{
                             fromTo:[240,0],
-                            range:[.63+offset,.1*this.screen],
+                            range:[.61+offset,.1*this.screen],
                             progress:val,
                             easing:'easeQuadOut'
                         },

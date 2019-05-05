@@ -99,7 +99,7 @@ import { swiper } from 'vue-awesome-swiper';
             const pageY = touches[0].pageY;
             // console.log(pageY);
             if(!init){
-                const offsetY = -(pageY-scrollData.oldY)*2;
+                const offsetY = -(pageY-scrollData.oldY);
                 scrollData.scrollTo = Math.clamp(scrollData.scrollTo+offsetY,0,scrollData.scrollTop);
             }
             scrollData.oldY=pageY;
@@ -188,7 +188,7 @@ import { swiper } from 'vue-awesome-swiper';
                 });
                 this.subProgress.push(0);
                 this.subVisiable.push(false);
-                this.subScreen.push(scrollData.screenHeight/height);
+                this.subScreen.push(scrollData.screenHeight*3/height);
             });
             this.renderScroll();
         }

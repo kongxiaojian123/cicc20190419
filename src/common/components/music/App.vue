@@ -48,6 +48,8 @@
 <style lang="postcss" scoped>
     .music{
         position: absolute;
+        top: 20rpx;
+        right: 20rpx;
         width: 80rpx;
         height: 80rpx;
         z-index: 1000;
@@ -65,7 +67,7 @@
         &.playing{
             /* 播放时的动画 */
             span{
-                animation: rotate_ani 5s infinite linear;
+                /* animation: rotate_ani 5s infinite linear; */
                 background-position: left center;
             }
         }

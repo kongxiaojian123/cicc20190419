@@ -24,34 +24,34 @@
                 this.titleNumStyle = this.$parent.tweenCss({
                     translateX: {
                         fromTo: [-50, 50],
-                        range: [0, 1.2 * this.screen],
+                        range: [0, 1.5],
                         progress: val,
                     },
                     translateY: {
                         fromTo: [50, -100],
-                        range: [0, 1.2 * this.screen],
+                        range: [0, 1.5],
                         progress: val,
                     },
                     scale: {
                         fromTo: [1.2, .8],
-                        range: [0, 1.2 * this.screen],
+                        range: [0, 1.5],
                         progress: val,
                     },
                 });
                 this.titleBgStyle = this.$parent.tweenCss({
                     translateX: {
                         fromTo: [100, -30],
-                        range: [0, 1.2 * this.screen],
+                        range: [0, 1.5],
                         progress: val,
                     },
                     translateY: {
                         fromTo: [-100, 30],
-                        range: [0, 1.2 * this.screen],
+                        range: [0, 1.5],
                         progress: val,
                     },
                     rotateZ: {
                         fromTo: [10, -10],
-                        range: [0, 1.2 * this.screen],
+                        range: [0, 1.5],
                         progress: val,
                     },
                 });
@@ -63,7 +63,7 @@
                     },
                     translateY: {
                         fromTo: [-30, 30],
-                        range: [0, 1.2 * this.screen],
+                        range: [0, 1.5],
                         progress: val,
                     },
                     scale: {
@@ -81,7 +81,7 @@
                             progress: val,
                         },
                         translateX: {
-                            fromTo: [100, 0],
+                            fromTo: [200, 0],
                             range: [0.54+i*.09, .2 * this.screen],
                             progress: val,
                             easing: 'easeBackOut'
@@ -91,12 +91,12 @@
                 this.bgStyle = this.$parent.tweenCss({
                     translateY: {
                         fromTo: [100, -100],
-                        range: [0.5, 1.6 * this.screen],
+                        range: [0.5, 1.8],
                         progress: val,
                     },
                     translateX: {
                         fromTo: [50, 0],
-                        range: [0.5, 1.6 * this.screen],
+                        range: [0.5, 1.8],
                         progress: val,
                     }
                 });
@@ -146,14 +146,14 @@
             }
             .ps-211{
                 position:absolute;
-                left:46.699029%;
-                top:62.71777%;
+                left:50%;
+                top:69.512195%;
                 background:url("../assets/text.ps-211.png") no-repeat center;
             }
             .ps-261{
                 position:absolute;
-                left:50%;
-                top:69.512195%;
+                left:46.699029%;
+                top:62.71777%;
                 background:url("../assets/bg.ps-261.png") no-repeat center;
             }
         }

@@ -24,24 +24,24 @@
                 this.titleNumStyle=this.$parent.tweenCss({
                     translateY:{
                         fromTo:[-180,50],
-                        range:[-.15,1.3*this.screen],
+                        range:[-.15,1.5],
                         progress:val,
                     },
                     translateX:{
                         fromTo:[-180,50],
-                        range:[-.15,1.3*this.screen],
+                        range:[-.15,1.5],
                         progress:val,
                     },
                 });
                 this.titleBgStyle = this.$parent.tweenCss({
                     rotateZ:{
                         fromTo:[-10,10],
-                        range:[0,1.5*this.screen],
+                        range:[0,1.5],
                         progress:val,
                     },
                     translateY:{
                         fromTo:[-50,50],
-                        range:[0,1.5*this.screen],
+                        range:[0,1.5],
                         progress:val,
                     },
                 });
@@ -61,7 +61,7 @@
                 const mainBgStyle = this.$parent.tween({
                     data:{
                         fromTo:[-100*pixelScale,100*pixelScale],
-                        range:[0,2*this.screen],
+                        range:[.34,1.7],
                         progress:val,
                     },
                 }).data;

@@ -22,34 +22,34 @@
                 this.titleNumStyle = this.$parent.tweenCss({
                     translateX: {
                         fromTo: [-50, 50],
-                        range: [0, 1.2 * this.screen],
+                        range: [0, 1.5],
                         progress: val,
                     },
                     translateY: {
                         fromTo: [50, -100],
-                        range: [0, 1.2 * this.screen],
+                        range: [0, 1.5],
                         progress: val,
                     },
                     scale: {
                         fromTo: [1.2, .8],
-                        range: [0, 1.2 * this.screen],
+                        range: [0, 1.5],
                         progress: val,
                     },
                 });
                 this.titleBgStyle = this.$parent.tweenCss({
                     translateX: {
                         fromTo: [100, -30],
-                        range: [0, 1.2 * this.screen],
+                        range: [0, 1.5],
                         progress: val,
                     },
                     translateY: {
                         fromTo: [-100, 30],
-                        range: [0, 1.2 * this.screen],
+                        range: [0, 1.5],
                         progress: val,
                     },
                     rotateZ: {
                         fromTo: [10, -10],
-                        range: [0, 1.2 * this.screen],
+                        range: [0, 1.5],
                         progress: val,
                     },
                 });
@@ -61,7 +61,7 @@
                     },
                     translateY: {
                         fromTo: [-30, 30],
-                        range: [0, 1.2 * this.screen],
+                        range: [0, 1.5],
                         progress: val,
                     },
                     scale: {

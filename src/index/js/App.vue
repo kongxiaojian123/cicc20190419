@@ -1,6 +1,7 @@
 <template>
     <div class="app">
         <Scroll v-if="pageIndex===0"></Scroll>
+        <Music src="../assets/song.mp3"/>
         <Loading v-if="pageIndex===-1" :assets="loadAssets" @complete="loadComplete"/>
     </div>
 </template>
@@ -8,9 +9,10 @@
 <script lang="ts">
     import { Vue, Component, Watch, Emit, Prop, } from 'vue-property-decorator';
     import Loading from 'loading/App.vue';
+    import Music from 'music/App.vue';
     import Scroll from './Scroll.vue';
     @Component({components:{
-        Loading,Scroll
+        Loading,Scroll,Music
     }})
     export default class App extends Vue {
         private loadAssets:RequireContext=require.context("../assets", true, /\.(png|jpg)$/i);

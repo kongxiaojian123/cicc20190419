@@ -69,13 +69,13 @@
                 this.mainNumStyle = this.$parent.tweenCss({
                     translateX:{
                         fromTo:[400,-50],
-                        range:[-.1,1.2*this.screen],
+                        range:[-.1,1.2],
                         progress:val,
                         easing:'easeQuadOut'
                     },
                     translateY:{
                         fromTo:[-100,100],
-                        range:[0,1.2*this.screen],
+                        range:[0,1.2],
                         progress:val,
                     },
                     scale:{
@@ -125,7 +125,7 @@
                 const bg2Style = this.$parent.tween({
                     data:{
                         fromTo:[0,360],
-                        range:[0,5*this.screen],
+                        range:[0,2],
                         progress:val,
                     },
                 }).data;
@@ -166,7 +166,7 @@
                         offset+=0.03;
                         this[`item0Text${i}Style`] = this.$parent.tweenCss({
                             translateX:{
-                                fromTo:[50,0],
+                                fromTo:[120,0],
                                 range:[0.22+offset,.1*this.screen],
                                 progress:val,
                                 easing:'easeQuadOut'
@@ -211,7 +211,7 @@
                         offset+=0.02;
                         this[`item1Text${i}Style`] = this.$parent.tweenCss({
                             translateX:{
-                                fromTo:[50,0],
+                                fromTo:[100,0],
                                 range:[0.22+offset,.1*this.screen],
                                 progress:val,
                                 easing:'easeQuadOut'
@@ -256,7 +256,7 @@
                         offset+=0.02;
                         this[`item2Text${i}Style`] = this.$parent.tweenCss({
                             translateX:{
-                                fromTo:[50,0],
+                                fromTo:[100,0],
                                 range:[0.22+offset,.1*this.screen],
                                 progress:val,
                                 easing:'easeQuadOut'
@@ -301,7 +301,7 @@
                         offset+=0.02;
                         this[`item3Text${i}Style`] = this.$parent.tweenCss({
                             translateX:{
-                                fromTo:[50,0],
+                                fromTo:[100,0],
                                 range:[0.22+offset,.1*this.screen],
                                 progress:val,
                                 easing:'easeQuadOut'
@@ -346,7 +346,7 @@
                         offset+=0.02;
                         this[`item4Text${i}Style`] = this.$parent.tweenCss({
                             translateX:{
-                                fromTo:[50,0],
+                                fromTo:[100,0],
                                 range:[0.22+offset,.1*this.screen],
                                 progress:val,
                                 easing:'easeQuadOut'
@@ -391,7 +391,7 @@
                         offset+=0.016;
                         this[`item5Text${i}Style`] = this.$parent.tweenCss({
                             translateX:{
-                                fromTo:[50,0],
+                                fromTo:[100,0],
                                 range:[0.22+offset,.1*this.screen],
                                 progress:val,
                                 easing:'easeQuadOut'

@@ -127,8 +127,12 @@
 		height: 100%;
 		background: #000;
 		.video {
+			position: absolute;
+			left: 0;
+			top: 50%; 
 			width: 100%;
-			height: 100%;
+			height: 1450rpx;
+			margin-top: -1450/2rpx;
 			object-fit: cover;
 		}
 		.video-poster{

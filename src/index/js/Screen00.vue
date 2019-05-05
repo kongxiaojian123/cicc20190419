@@ -21,50 +21,50 @@
                 this.bg2Style = this.$parent.tweenCss({
                     scale:{
                         fromTo:[1,2],
-                        range:[1,1.5],
+                        range:[1.1,1.5],
                         progress:val,
                     },
                 });
                 this.bg1Style = this.$parent.tweenCss({
                     translateY:{
                         fromTo:[0,450],
-                        range:[1,1.5],
+                        range:[1.1,1.5],
                         progress:val, 
                     },
                     translateX:{
                         fromTo:[0,-30],
-                        range:[1,1.5],
+                        range:[1.1,1.5],
                         progress:val, 
                     }
                 });
                 this.text0Style = this.$parent.tweenCss({
                     translateY:{
                         fromTo:[0,-50],
-                        range:[1,.8],
+                        range:[1.1,.8],
                         progress:val,
                     },
                     translateX:{
                         fromTo:[0,150],
-                        range:[1,.8],
+                        range:[1.1,.8],
                         progress:val,
                     }
                 });
                 this.text1Style = this.$parent.tweenCss({
                     translateX:{
                         fromTo:[0,100],
-                        range:[1,.8],
+                        range:[1.1,.8],
                         progress:val,
                     }
                 });
                 this.text2Style = this.$parent.tweenCss({
                     translateY:{
                         fromTo:[0,50],
-                        range:[1,.8],
+                        range:[1.1,.8],
                         progress:val,
                     },
                     translateX:{
                         fromTo:[0,50],
-                        range:[1,.8],
+                        range:[1.1,.8],
                         progress:val,
                     }
                 });
@@ -74,7 +74,7 @@
                         this.$parent.tween({
                             backgroundPosition:{
                                 fromTo:[0,-100],
-                                range:[1,1],
+                                range:[1.1,1],
                                 progress:val, 
                             }
                         }).backgroundPosition

@@ -46,26 +46,26 @@ import Pie from './lib/pie.ts';
                 this.titleNumStyle=this.$parent.tweenCss({
                     translateY:{
                         fromTo:[-180,50],
-                        range:[0,1.3*this.screen],
+                        range:[0,1.3],
                         progress:val,
                         easing:"easeQuadOut"
                     },
                     translateX:{
                         fromTo:[130,-100],
-                        range:[0,1.3*this.screen],
+                        range:[0,1.3],
                         progress:val,
                     },
                 });
                 this.titleBgStyle=this.$parent.tweenCss({
                     translateY:{
                         fromTo:[-50,50],
-                        range:[0,1.3*this.screen],
+                        range:[0,1.3],
                         progress:val,
                         easing:"easeQuadOut"
                     },
                     translateX:{
                         fromTo:[-30,100],
-                        range:[0,1.3*this.screen],
+                        range:[0,1.3],
                         progress:val,
                     },
                 });
@@ -100,7 +100,7 @@ import Pie from './lib/pie.ts';
                 this.chartStyle=this.$parent.tweenCss({
                     translateY:{
                         fromTo:[0,1150],
-                        range:[.43,1.6*this.screen],
+                        range:[.43,.8],
                         progress:val, 
                         easing:'easeSinInOut'
                     },
@@ -167,7 +167,7 @@ import Pie from './lib/pie.ts';
                         progress:val,
                     },
                 });
-                if(val<.93){
+                if(val<.95){
                     this.chartText1Style=this.$parent.tweenCss({
                         opacity:{
                             fromTo:[0,1],
@@ -246,6 +246,8 @@ import Pie from './lib/pie.ts';
                     {range:[0,0.11],color:'#095183',},
                     {range:[0.11,0.07],color:'#b6171e',},
                     {range:[0.86,0.11],color:'#aa1e23',},
+                    {range:[0.97,0.015],color:'#666666',},
+                    {range:[0.985,0.015],color:'#cfae81',},
                 ]
             }
         },

@@ -19,7 +19,7 @@
                 <div class="type ps-105" :style="mainType1Style"></div>
             </div>
             <div class="type01 ps-544">
-                <div class="bg" :style="mainBgStyle"></div>
+                <div class="bg" :style="mainBgStyle"></div> 
                 <div class="date ps-562"></div>
                 <div class="chart ps-548">
                     <div class="bottom ps-67" :style="mainbottom0Style"></div>
@@ -52,12 +52,12 @@
                 this.titleBgStyle = this.$parent.tweenCss({
                     translateY:{
                         fromTo:[-200,100],
-                        range:[-0.5,2*this.screen], 
+                        range:[-0.5,1.6], 
                         progress:val,
                     },
                     translateX:{
                         fromTo:[200,-100],
-                        range:[-0.5,2*this.screen], 
+                        range:[-0.5,1.6], 
                         progress:val,
                     },
                 });
@@ -82,24 +82,24 @@
                 this.titleNumStyle = this.$parent.tweenCss({
                     translateX:{
                         fromTo:[-30,30],
-                        range:[0.1,1.3*this.screen], 
+                        range:[0.1,1.1], 
                         progress:val,
                     },
                     translateY:{
                         fromTo:[30,-30],
-                        range:[0.1,1.3*this.screen], 
+                        range:[0.1,1.1], 
                         progress:val,
                     },
                     scale:{
                         fromTo:[1,1.2],
-                        range:[0.1,2.3*this.screen], 
+                        range:[0.1,2], 
                         progress:val,
                     },
                 });
                 this.mainBgStyle = this.$parent.tweenCss({
                     translateY:{
-                        fromTo:[0,400],
-                        range:[.3,2.3*this.screen],
+                        fromTo:[0,600],
+                        range:[.3,2],
                         progress:val, 
                     },
                 });
@@ -129,13 +129,13 @@
                     this.mainSize00Style = this.$parent.tweenCss({
                         scale:{
                             fromTo:[0.2,1],
-                            range:[0.6+offset,.1*this.screen], 
+                            range:[0.58+offset,.1*this.screen], 
                             progress:val,
                             easing:'easeBackOut',
                         },
                         opacity:{
                             fromTo:[0,1],
-                            range:[0.6+offset,.05*this.screen], 
+                            range:[0.58+offset,.05*this.screen], 
                             progress:val,
                         },
                     });
@@ -155,13 +155,13 @@
                     this.mainText00Style = this.$parent.tweenCss({
                         scale:{
                             fromTo:[0.2,1],
-                            range:[0.62+offset,.1*this.screen], 
+                            range:[0.6+offset,.1*this.screen], 
                             progress:val,
                             easing:'easeBackOut',
                         },
                         opacity:{
                             fromTo:[0,1],
-                            range:[0.62+offset,.05*this.screen], 
+                            range:[0.6+offset,.05*this.screen], 
                             progress:val,
                         },
                     });
@@ -204,13 +204,13 @@
                     this.mainSize10Style = this.$parent.tweenCss({
                         scale:{
                             fromTo:[0.2,1],
-                            range:[0.6+offset,.1*this.screen], 
+                            range:[0.58+offset,.1*this.screen], 
                             progress:val,
                             easing:'easeBackOut',
                         },
                         opacity:{
                             fromTo:[0,1],
-                            range:[0.6+offset,.05*this.screen], 
+                            range:[0.58+offset,.05*this.screen], 
                             progress:val,
                         },
                     });
@@ -230,13 +230,13 @@
                     this.mainText10Style = this.$parent.tweenCss({
                         scale:{
                             fromTo:[0.2,1],
-                            range:[0.62+offset,.1*this.screen], 
+                            range:[0.6+offset,.1*this.screen], 
                             progress:val,
                             easing:'easeBackOut',
                         },
                         opacity:{
                             fromTo:[0,1],
-                            range:[0.62+offset,.05*this.screen], 
+                            range:[0.6+offset,.05*this.screen], 
                             progress:val,
                         },
                     });

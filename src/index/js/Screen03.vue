@@ -99,25 +99,26 @@
                     },
                     translateX:{
                         fromTo:[0,-100],
-                        range:[.15,1.2*this.screen], 
+                        range:[.15,1.2], 
                         progress:val,
                     },
                 });
                 this.titleNumStyle = this.$parent.tweenCss({
                     translateY:{
                         fromTo:[-150,150],
-                        range:[-.1,1.5*this.screen], 
+                        range:[-.1,1.3], 
                         progress:val,
                     },
                     translateX:{
                         fromTo:[-30,30],
-                        range:[-.1,1.5*this.screen], 
+                        range:[-.1,1.3], 
                         progress:val,
                     },
                     scale:{
                         fromTo:[1.5,1],
                         range:[0,.3*this.screen], 
                         progress:val,
+                        easing:'easeQuadOut'
                     }, 
                 });
                 {
@@ -159,7 +160,7 @@
                     this.mainSize01Style = this.$parent.tweenCss({
                         translateY:{
                             fromTo:[160,0],
-                            range:[.54+offset,.1*this.screen], 
+                            range:[.52+offset,.1*this.screen], 
                             progress:val,
                             easing:'easeBackOut',
                         },
@@ -188,13 +189,13 @@
                     this.mainText01Style = this.$parent.tweenCss({
                         scale:{
                             fromTo:[.5,1],
-                            range:[.56+offset,.1*this.screen], 
+                            range:[.54+offset,.1*this.screen], 
                             progress:val,
                             easing:'easeBackOut',
                         },
                         opacity:{
                             fromTo:[0,1],
-                            range:[.56+offset,.05*this.screen], 
+                            range:[.54+offset,.05*this.screen], 
                             progress:val,
                         }
                     });
@@ -251,7 +252,7 @@
                     this.mainSize11Style = this.$parent.tweenCss({
                         translateY:{
                             fromTo:[160,0],
-                            range:[.54+offset,.1*this.screen], 
+                            range:[.52+offset,.1*this.screen], 
                             progress:val,
                             easing:'easeBackOut',
                         },
@@ -280,13 +281,13 @@
                     this.mainText11Style = this.$parent.tweenCss({
                         scale:{
                             fromTo:[.5,1],
-                            range:[.56+offset,.1*this.screen], 
+                            range:[.54+offset,.1*this.screen], 
                             progress:val,
                             easing:'easeBackOut',
                         },
                         opacity:{
                             fromTo:[0,1],
-                            range:[.56+offset,.05*this.screen], 
+                            range:[.54+offset,.05*this.screen], 
                             progress:val,
                         }
                     });

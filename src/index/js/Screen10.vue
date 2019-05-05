@@ -26,34 +26,34 @@
                 this.titleNumStyle = this.$parent.tweenCss({
                     translateX: {
                         fromTo: [-50, 50],
-                        range: [0, 1.2 * this.screen],
+                        range: [0, .9],
                         progress: val,
                     },
                     translateY: {
                         fromTo: [50, -100],
-                        range: [0, 1.2 * this.screen],
+                        range: [0, .9],
                         progress: val,
                     },
                     scale: {
                         fromTo: [1.2, .8],
-                        range: [0, 1.2 * this.screen],
+                        range: [0, .9],
                         progress: val,
                     },
                 });
                 this.titleBgStyle = this.$parent.tweenCss({
                     translateX: {
                         fromTo: [100, -30],
-                        range: [0, 1.2 * this.screen],
+                        range: [0, .9],
                         progress: val,
                     },
                     translateY: {
                         fromTo: [-100, 30],
-                        range: [0, 1.2 * this.screen],
+                        range: [0, .9],
                         progress: val,
                     },
                     rotateZ: {
                         fromTo: [10, -10],
-                        range: [0, 1.2 * this.screen],
+                        range: [0, .9],
                         progress: val,
                     },
                 });
@@ -65,7 +65,7 @@
                     },
                     translateY: {
                         fromTo: [-30, 30],
-                        range: [0, 1.2 * this.screen],
+                        range: [0, .9],
                         progress: val,
                     },
                     scale: {
@@ -90,7 +90,7 @@
                             progress: val,
                         },
                         translateX: {
-                            fromTo: [100*(i%2?1:-1), 0],
+                            fromTo: [200*(i%2?1:-1), 0],
                             range: [0.3+i*.094, .2 * this.screen],
                             progress: val,
                             easing: 'easeBackOut'
